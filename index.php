@@ -1,9 +1,11 @@
 <?php
 include_once('database/database.php');
-var_dump(Database::connect());
+;
 $fecha = $_POST;
 $header = ["Fecha", "Hora", "CAS", "ESSL/Explota", "Módulo", "Detalle del problema", "Responsable que registra", "Usuario que reporta", "Fecha a soporte_essl", "Fecha soporte mesadeayuda", "N° Caso mesdeayuda", ["Reporte telefonico a..." => "Fecha", "Destino"], ["Reporte por Email a:..." => "Fecha", "Destino"], ["Reporte por Whatsapp a..." => "Fecha", "Destino"], ["Reporte formal a..." => "Fecha", "Destino"]];
-
+$pdo = Database::connect();
+$con = $pdo->query('SELECT CAS FROM bitacora')->fetchAll(PDO::FETCH_COLUMN);
+var_dump($con);
 ?>
 <!DOCTYPE html>
 <html lang="es">
