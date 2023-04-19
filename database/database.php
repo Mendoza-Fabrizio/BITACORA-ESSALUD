@@ -1,7 +1,7 @@
 <?php
 class Database
 {
-  private static $dbName = 'essalud';
+  private static $dbName = 'essalud_essi';
   private static $dbHost = 'localhost';
   private static $dbUsername = 'root';
   private static $dbUserPassword = '';
