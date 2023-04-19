@@ -20,7 +20,7 @@
     >
       <div class="d-flex justify-content-center">
         <img
-          src="/logo/logo.png"
+          src="/login/logo/logo.png"
           alt="login-icon"
           style="height: 7rem"
         />
@@ -29,7 +29,7 @@
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/usuario.png"
+            src="/login/logo/usuario.png"
             alt="username-icon"
             style="height: 1rem"
           />
@@ -43,7 +43,7 @@
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/contrasena.png"
+            src="/login/logo/contrasena.png"
             alt="password-icon"
             style="height: 1rem"
           />
@@ -75,7 +75,7 @@
       </div>
       <div class="d-flex gap-1 justify-content-center mt-1">
         <div>Don't have an account?</div>
-        <a href="signup.html" class="text-decoration-none text-info fw-semibold"
+        <a href="signup.php" class="text-decoration-none text-info fw-semibold"
           >Register</a
         >
     </div>

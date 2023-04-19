@@ -108,6 +108,7 @@ $con = $pdo->query('SELECT * FROM bitacora')->fetchAll();
       echo ' </tr>';
     }
     ?>
+        
   </table>
   <button type="button"><a href="formulario.php">Volver</a></button>
 </body>

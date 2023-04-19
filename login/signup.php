@@ -20,7 +20,7 @@
     >
       <div class="d-flex justify-content-center">
         <img
-          src="/logo/logo.png"
+          src="/login/logo/logo.png"
           alt="login-icon"
           style="height: 7rem"
         />
@@ -29,7 +29,7 @@
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/usuario.png"
+            src="/login/logo/usuario.png"
             alt="username-icon"
             style="height: 1rem"
           />
@@ -37,14 +37,16 @@
         <input
           class="form-control bg-light"
           type="text"
-          placeholder="Username"
+          placeholder="Full name"
+          autocomplete="off"
+          name="username"
         />
       </div>
 
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/email.png"
+            src="/login/logo/email.png"
             alt="email-icon"
             style="height: 1rem"
           />
@@ -53,13 +55,15 @@
           class="form-control bg-light"
           type="text"
           placeholder="E-mail"
+          autocomplete="off"
+          name="email"
         />
       </div>
 
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/phone.png"
+            src="/login/logo/phone.png"
             alt="telefono-icon"
             style="height: 1rem"
           />
@@ -68,13 +72,16 @@
           class="form-control bg-light"
           type="text"
           placeholder="Phone"
+          autocomplete="off"
+          name="celular"
         />
       </div>
-
+<p>
+</p>
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
           <img
-            src="/logo/contrasena.png"
+            src="/login/logo/contrasena.png"
             alt="password-icon"
             style="height: 1rem"
           />
@@ -83,11 +90,13 @@
           class="form-control bg-light"
           type="password"
           placeholder="Password"
+          autocomplete="off"
+          name="password"
         />
       </div>
       
-      <div >
-       <a href="login.html"  class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"> Login</a>
+      <div name="submit" >
+       <a href="login.php"  class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"> Login</a>
        
       </div>
      
