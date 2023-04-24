@@ -6,11 +6,12 @@
 		include 'database/database.php';
 		$sentencia = $bd->query("SELECT * FROM bitacora;");
 		$bitacora = $sentencia->fetchAll(PDO::FETCH_OBJ);
-	
+		//print_r($alumnos);
 	}else{
 		echo "Error en el sistema";
 	}
-  
+
+
 	
 ?>
 
@@ -68,6 +69,7 @@
                             <tr>
                                 <td><?php echo $dato->idbitacora; ?></td>
                                 <td><?php echo $dato->Fecha; ?></td>
+                                <td><?php echo $dato->Hora; ?></td>
                                 <td><?php echo $dato->CAS; ?></td>
                                 <td><?php echo $dato->essi_explota; ?></td>
                                 <td><?php echo $dato->modulo; ?></td>
@@ -97,7 +99,7 @@
             </div>
         </div>
      <div class="d-grid gap-2 d-md-block">
-  <button class="btn btn-primary" type="button"><a href="formulario.php">Volver</button>
+     <a class="btn btn-light btn btn-outline-primary" href="formulario.php">Volver</a>
   
     </div>
 </body>

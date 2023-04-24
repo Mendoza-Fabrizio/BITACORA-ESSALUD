@@ -1,3 +1,9 @@
+<?php 
+	session_start();
+	if (isset($_SESSION['nombre'])) {
+		header('Location: formulario.php');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,7 +86,7 @@
         </div>
         <div class="d-flex gap-1 justify-content-center mt-1">
           <div>Don't have an account?</div>
-          <a href="login/signup.php" class="text-decoration-none text-info fw-semibold"
+          <a href="signup.php" class="text-decoration-none text-info fw-semibold"
             >Register</a
           >
       </div>
@@ -88,9 +94,4 @@
   </body>
 </html>
 
-<?php 
-	session_start();
-	if (isset($_SESSION['nombre'])) {
-		header('Location: formulario.php');
-	}
-?>
+

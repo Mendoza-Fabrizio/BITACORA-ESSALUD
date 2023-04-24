@@ -15,4 +15,5 @@
 		$_SESSION['nombre'] = $datos->nombre;
 		header('Location: formulario.php');
 	}
+
 ?>

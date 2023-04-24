@@ -2,15 +2,17 @@
 	session_start();
 	if (!isset($_SESSION['nombre'])) {
 		header('Location: login.php');
-	}elseif(isset($_SESSION['nombre'])){
+  }elseif(isset($_SESSION['nombre'])){
 		include 'database/database.php';
 		$sentencia = $bd->query("SELECT * FROM bitacora;");
 		$alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 		//print_r($alumnos);
-	}else{
-		echo "Error en el sistema";
+  }else{
+		echo "gaaa";
 	}
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +31,9 @@
   <div class="container-fluid">
     <a class="navbar-brand">EsSalud</a>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-light" type="button"><a href="cerrar.php" text-decoration:none> Cerrar Sesion</button>
+ 
       </div>
+      <a class="btn btn-light" href="login.php"> Cerrar Sesion</a>
   </div>
 </nav>
   <div class="page-header bg-secondary text-white text-center">
@@ -123,7 +126,7 @@
     <p></p>
     <div class="form-group">
       <label for="responsable">Responsable que registra: </label>
-      <input type="text" class="form-control" name="responsable">
+      <input type="text" class="form-control" name="responsable" >
     </div>
     <p></p>
     <div class="form-group">
