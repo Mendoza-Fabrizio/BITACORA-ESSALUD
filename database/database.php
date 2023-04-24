@@ -1,39 +1,18 @@
-<?php
-class Database
-{
-  private static $dbName = 'essalud_essi';
-  private static $dbHost = 'localhost';
-  private static $dbUsername = 'root';
-  private static $dbUserPassword = '';
+<?php  
+	$contrasena = '';
+	$usuario = 'root';
+	$nombrebd= 'essalud_essi';
 
+	try {
+		$bd = new PDO(
+			'mysql:host=localhost;
+			dbname='.$nombrebd,
+			$usuario,
+			$contrasena,
+			array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
+		);
+	} catch (Exception $e) {
+		echo "Error de conexión ".$e->getMessage();
+	}
 
-
-  //COMMIT
-  private static $cont = null;
-
-  public function __construct()
-  {
-    die('No esta Permitido Instanciar la Conexion');
-  }
-  //CUALQUIER COSA
-  public static function connect()
-  {
-    if (null == self::$cont) {
-      try {
-        self::$cont = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
-        $dbh = self::$cont;
-        $dbh->exec("set names utf8");
-        $dbh->exec("SET lc_time_names = 'es_PE'");
-      } catch (PDOException $e) {
-        die($e->getMessage());
-      }
-    }
-    return self::$cont;
-  }
-
-  public static function disconnect()
-  {
-    self::$cont = null;
-  }
-}
 ?>

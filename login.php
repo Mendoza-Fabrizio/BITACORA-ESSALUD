@@ -14,14 +14,14 @@
     />
   </head>
   <body class="bg-info d-flex justify-content-center align-items-center vh-100">
-    <form action="login.php" method="POST">
+    <form action="loginProceso.php" method="POST">
       <div
         class="bg-white p-5 rounded-5 text-secondary shadow"
         style="width: 25rem"
       >
         <div class="d-flex justify-content-center">
           <img
-            src="/logo.png"
+            src="login/logo/logo.png"
             alt="login-icon"
             style="height: 7rem"
           />
@@ -30,30 +30,31 @@
         <div class="input-group mt-4">
           <div class="input-group-text bg-info">
             <img
-              src="/usuario.png"
+              src="login/logo/usuario.png"
               alt="username-icon"
               style="height: 1rem"
             />
           </div>
           <input
-            
+          class="form-control bg-light"
             type="text"
-           
+            placeholder="Full name"
             name="nombre" required
           />
         </div>
         <div class="input-group mt-1">
           <div class="input-group-text bg-info">
             <img
-              src="/login/logo/contrasena.png"
+              src="login/logo/contrasena.png"
               alt="password-icon"
               style="height: 1rem"
             />
           </div>
           <input
-           
+          class="form-control bg-light"
             type="password"
-          
+            placeholder="Password"
+            autocomplete="off"
             name = "password" required
           />
         </div>
@@ -79,7 +80,7 @@
         </div>
         <div class="d-flex gap-1 justify-content-center mt-1">
           <div>Don't have an account?</div>
-          <a href="signup.php" class="text-decoration-none text-info fw-semibold"
+          <a href="login/signup.php" class="text-decoration-none text-info fw-semibold"
             >Register</a
           >
       </div>
@@ -87,22 +88,9 @@
   </body>
 </html>
 
-<?php
-if($_POST){
-  session_start();
-  require('conexion.php');
-  $u = $_POST['nombre'];
-  $p = $_POST['password'];
-  $conexion -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-  $query = $conexion ->prepare("SELECT * FROM usuario WHERE nombre= :u AND contrasena = :p");
-  $usuario = $query->fetch(PDO::FETCH_ASSOC);
-  if($usuario){
-    $_SESSION['contrasena'] = $usuario["contrasena"];
-    header("location:formulario.php");
-  }else{
-    echo "Usuario o password son invalidos";
-  }
-
-}
-
+<?php 
+	session_start();
+	if (isset($_SESSION['nombre'])) {
+		header('Location: formulario.php');
+	}
 ?>

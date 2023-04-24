@@ -21,7 +21,8 @@
         >
           <div class="d-flex justify-content-center">
             <img
-              src="/login/logo/logo.png"
+             src="login/logo/logo1.png"
+         
               alt="login-icon"
               style="height: 7rem"
             />
@@ -30,7 +31,7 @@
           <div class="input-group mt-4">
             <div class="input-group-text bg-info">
               <img
-                src="/login/logo/usuario.png"
+                src="login/logo/usuario1.png"
                 alt="username-icon"
                 style="height: 1rem"
               />
@@ -47,7 +48,7 @@
           <div class="input-group mt-4">
             <div class="input-group-text bg-info">
               <img
-                src="/login/logo/email.png"
+                src="login/logo/email.png"
                 alt="email-icon"
                 style="height: 1rem"
               />
@@ -64,7 +65,7 @@
           <div class="input-group mt-4">
             <div class="input-group-text bg-info">
               <img
-                src="/login/logo/phone.png"
+                src="login/logo/phone.png"
                 alt="telefono-icon"
                 style="height: 1rem"
               />
@@ -82,7 +83,7 @@
           <div class="input-group mt-1">
             <div class="input-group-text bg-info">
               <img
-                src="/login/logo/contrasena.png"
+                src="login/logo/contrasena1.png"
                 alt="password-icon"
                 style="height: 1rem"
               />

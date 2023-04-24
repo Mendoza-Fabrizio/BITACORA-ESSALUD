@@ -16,7 +16,7 @@ $consulta->bindParam(':celular',$celular);
 $consulta->bindParam(':pass',$pass);
 
 if($consulta -> execute()){
-    echo "Datos guardados correctamente ...";
+    header("location:login.php");
 
 }else{
     echo "No se ha podido guardar datos ...";

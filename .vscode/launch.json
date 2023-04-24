@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Iniciar Chrome para localhost",
-            "url": "http://localhost/BITACORA-ESSALUD/login/login.php",
+            "url": "http://localhost/BITACORA-ESSALUD/login.php",
             "webRoot": "${workspaceFolder}"
         }
     ]

@@ -1,17 +1,19 @@
-
-<?php
-// We need to use sessions, so you should always start sessions using the below code.
-session_start();
-// If the user is not logged in redirect to the login page...
-if (!isset($_SESSION['loggedin'])) {
-	header('Location: login.php');
-	exit;
-}
+<?php  
+	session_start();
+	if (!isset($_SESSION['nombre'])) {
+		header('Location: login.php');
+	}elseif(isset($_SESSION['nombre'])){
+		include 'database/database.php';
+		$sentencia = $bd->query("SELECT * FROM bitacora;");
+		$alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+		//print_r($alumnos);
+	}else{
+		echo "Error en el sistema";
+	}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,14 +21,22 @@ if (!isset($_SESSION['loggedin'])) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
-  <title>Document</title>
+  <title>Bitacora</title>
 </head>
 
 <body>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand">EsSalud</a>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-light" type="button"><a href="cerrar.php" text-decoration:none> Cerrar Sesion</button>
+      </div>
+  </div>
+</nav>
   <div class="page-header bg-secondary text-white text-center">
     <span class="h2">BITACORA ESSI</span>
   </div>
-  <form action="index.php" method="POST" style=" width: 60%; margin: 0 auto;">
+  <form action="insertar.php" method="POST" style=" width: 60%; margin: 0 auto;">
     <legend class="text-center-success">REGISTRO DE DATOS</legend>
     <div class="form-group">
       <label for="fecha">Fecha</label>
@@ -35,7 +45,7 @@ if (!isset($_SESSION['loggedin'])) {
     <p></p>
     <div class="form-group">
       <label for="hora">Hora</label>
-      <input type="time" name ="Hora" id="startTime" />
+      <input type="time" name ="hora" id="startTime" />
     </div>
     <p></p>
     <div class="form-group">
@@ -44,42 +54,42 @@ if (!isset($_SESSION['loggedin'])) {
     <p></p>
     <select name="cas" id="lang">
     <option value="seleccionarcas">Seleccionar CAS</option>
-          <option value="escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo</option>
-          <option value="muñoz">Hospital II Manuel de Torres Muñoz - Mollendo</option>
-          <option value="pastor">Hospital I Samuel Pastor - Camaná</option>
-          <option value="yanahuara">Hospital III Yanahuara</option>
-          <option value="escomel">Hospital I Edmundo Escomel</option>
-          <option value="salas">CAP III Melitón Salas</option>
-          <option value="aplao">Centro Médico Aplao</option>
-          <option value="chicay">CAP I Chivay</option>
-          <option value="hunter">CAP II Hunter</option>
-          <option value="pedregal">CAP I El Pedregal</option>
-          <option value="yura">CAP I Yura</option>
-          <option value="paucarpata">CAP III Paucarpata</option>
-          <option value="miraflores">CAP III Miraflores</option>
-          <option value="cerrocolorado">Centro de Complejidad Creciente Cerro Colorado</option>
-          <option value="acari">Posta Médica Acarí</option>
-          <option value="atico">Posta Médica Atico</option>
-          <option value="caraveli">Posta Médica Caravelí</option>
-          <option value="chala">Posta Médica Chala</option>
-          <option value="chucarapi">Posta Médica Chucarapi</option>
-          <option value="chuquibamba">Posta Médica Chuquibamba</option>
-          <option value="corire">Posta Médica Corire</option>
-          <option value="cotahuasi">Posta Médica Cotahuasi</option>
-          <option value="joya">Posta Medica La Joya</option>
-          <option value="matarani">Posta Médica Matarani</option>
-          <option value="santarita">Posta Médica Santa Rita</option>
-          <option value="vitor">Posta Médica Vitor</option>
-          <option value="metropolitano">Policlínico Metropolitano</option>
+          <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo</option>
+          <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo</option>
+          <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
+          <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
+          <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
+          <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
+          <option value="Centro Médico Aplao">Centro Médico Aplao</option>
+          <option value="CAP I Chivay">CAP I Chivay</option>
+          <option value="CAP II Hunter">CAP II Hunter</option>
+          <option value="CAP I El Pedregal">CAP I El Pedregal</option>
+          <option value="CAP I Yura">CAP I Yura</option>
+          <option value="CAP III Paucarpata">CAP III Paucarpata</option>
+          <option value="CAP III Miraflores">CAP III Miraflores</option>
+          <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado</option>
+          <option value="Posta Médica Acarí">Posta Médica Acarí</option>
+          <option value="Posta Médica Atico">Posta Médica Atico</option>
+          <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
+          <option value="Posta Médica Chala">Posta Médica Chala</option>
+          <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
+          <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
+          <option value="Posta Médica Corire">Posta Médica Corire</option>
+          <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
+          <option value="Posta Medica La Joya">Posta Medica La Joya</option>
+          <option value="Posta Médica Mataran">Posta Médica Matarani</option>
+          <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
+          <option value="Posta Médica Vitor">Posta Médica Vitor</option>
+          <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
       </select>
   
     <div class="form-group">
       <label for="essi">ESSI/Explota: </label>
     </div>
 
-    <label><input type="checkbox" id="essi" name="essi" value="Essi"> ESSI</label><br>
+    <label><input type="checkbox" id="essi" name="checkbox[]" value="Essi"> ESSI</label><br>
 
-    <input type="checkbox" id="explota" name="explota" value="Explota"> <label for="cbox2">EXPLOTA</label>
+    <input type="checkbox" id="explota" name="checkbox[]" value="Explota"> <label for="cbox2">EXPLOTA</label>
 
    
     <p></p>
@@ -88,7 +98,7 @@ if (!isset($_SESSION['loggedin'])) {
     </div>
       
       <select name="modulos" id="lang">
-        <option value="selecciona">Seleccionar modulo</option>
+        <option value=" ">Seleccionar modulo</option>
         <option value="Admisión y Citas">Admisión y Citas</option>
         <option value="Consulta Externa">Consulta Externa</option>
         <option value="Emergencia">Emergencia</option>
@@ -181,7 +191,7 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="form-group">
       <input type="submit" class="btn btn-success form-control">
     </div>
-
+    <input type="hidden" name="oculto" value="1">
     <script> src</script>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
