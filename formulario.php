@@ -1,19 +1,3 @@
-<?php  
-	session_start();
-	if (!isset($_SESSION['nombre'])) {
-		header('Location: login.php');
-  }elseif(isset($_SESSION['nombre'])){
-		include 'database/database.php';
-		$sentencia = $bd->query("SELECT * FROM bitacora;");
-		$alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-		//print_r($alumnos);
-  }else{
-		echo "gaaa";
-	}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -202,3 +186,14 @@
     crossorigin="anonymous"></script>
 
 </body>
+<?php
+
+if(isset($_POST['fecha']) && isset($_POST['hora'])&& isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos'])
+&& isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR'])&& isset($_POST['fechasoporteessi']) 
+&& isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa'])&& isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) 
+&& isset($_POST['fechaEmail'])&& isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp'])
+&& isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
+
+require_once "database.php";
+
+?>

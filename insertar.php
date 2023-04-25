@@ -1,9 +1,7 @@
-<?php  
-	if (!isset($_POST['oculto'])) {
-		exit();
-	}
+<?php
 
-	include 'database/database.php';
+require_once "database.php";
+
 	$fecha = $_POST['fecha'];
 	$hora = $_POST['hora'];
 	$cas = $_POST['cas'];
@@ -24,14 +22,36 @@
     $fechaFormal = $_POST['fechaFormal'];
     $destinoFormal = $_POST['destinoFormal'];
 
-	$sentencia = $bd->prepare("INSERT INTO bitacora(Fecha,Hora, CAS,essi_explota,modulo,detalle,responsable,usuario_reporte,fecha_essi_soporte,fecha_mesa_soporte,num_caso_mesa_ayuda,fecha_reporte_telefono,
-    destino_reporte_telefono,fecha_reporte_email,destino_reporte_email,fecha_reporte_whatsapp,destino_reporte_whatsapp,fecha_reporte_formal,destino_reporte_formal) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?.?)");
-	$resultado = $sentencia->execute([$fecha,$hora,$cas,$essi,$modulos,$detalle,$responsable,$UsuarioR,$fechasoporteessi,$fechasoportemesa,$nroCasoMesa,$fechaTelef,$destinoTelef,$fechaEmail,$destinoEmail,$fechaWspp,$destinoWspp,$fechaFormal,$destinoFormal]);
+	$consulta = $pdo->prepare("INSERT INTO bitacora(Fecha,Hora, CAS,essi_explota,modulo,detalle,responsable,usuario_reporte,fecha_essi_soporte,fecha_mesa_soporte,num_caso_mesa_ayuda,fecha_reporte_telefono,
+    destino_reporte_telefono,fecha_reporte_email,destino_reporte_email,fecha_reporte_whatsapp,destino_reporte_whatsapp,fecha_reporte_formal,destino_reporte_formal) 
+	VALUES (:fecha,:hora,:cas,:checkbox,:modulos,:detalle,:responsable,:UsuarioR,:fechasoporteessi,:fechasoportemesa,:nroCasoMesa,:fechaTelef,:destinoTelef,
+	:fechaEmail,:destinoEmail,:fechaWspp, :destinoWspp,:fechaFormal,:destinoFormal)");
 
-	if ($resultado === TRUE) {
-		//echo "Insertado correctamente";
-		header('Location: index.php');
+	$consulta ->bindParam(':fecha',$fecha);
+	$consulta ->bindParam(':hora',$hora);
+	$consulta ->bindParam(':cas',$cas);
+	$consulta ->bindParam(':checkbox',$checkbox);
+	$consulta ->bindParam(':modulos',$modulos);
+	$consulta ->bindParam(':detalle',$detalle);
+	$consulta ->bindParam(':responsable',$responsable);
+	$consulta ->bindParam(':UsuarioR',$UsuarioR);
+	$consulta ->bindParam(':fechasoporteessi',$fechasoporteessi);
+	$consulta ->bindParam(':fechasoportemesa',$fechasoportemesa);
+	$consulta ->bindParam(':nroCasoMesa',$nroCasoMesa);
+	$consulta ->bindParam(':fechaTelef',$fechaTelef);
+	$consulta ->bindParam(':destinoTelef',$destinoTelef);
+	$consulta ->bindParam(':fechaEmail',$fechaEmail);
+	$consulta ->bindParam(':destinoEmail',$destinoEmail);
+	$consulta ->bindParam(':fechaWspp',$fechaWspp);
+	$consulta ->bindParam(':destinoWspp',$destinoWspp);
+	$consulta ->bindParam(':fechaFormal',$fechaFormal);
+	$consulta ->bindParam(':destinoFormal',$destinoFormal);
+
+	if($consulta -> execute()){
+		echo "Se guardo correctamente";
 	}else{
-		echo "Error";
+		echo "No se guardo";
 	}
+
+
 ?>
