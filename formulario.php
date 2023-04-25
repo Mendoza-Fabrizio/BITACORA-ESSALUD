@@ -8,7 +8,7 @@ session_start();
     require_once "database.php";  
 	}else{
 		echo "Error en el sistema";
-	}
+	} 
 
 
 
@@ -127,7 +127,7 @@ session_start();
     <p></p>
     <div class="form-group">
       <label for="responsable">Responsable que registra: </label>
-      <input type="text" class="form-control" name="responsable" >
+      <input type="text" class="form-control" name="responsable">
     </div>
     <p></p>
     <div class="form-group">

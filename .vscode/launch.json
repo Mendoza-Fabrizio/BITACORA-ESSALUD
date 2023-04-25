@@ -8,11 +8,11 @@
             "type": "msedge",
             "request": "launch",
             "name": "Iniciar Edge para localhost",
-<<<<<<< HEAD
+
             "url": "http://localhost/BITACORA-ESSALUD/login.php",
-=======
-            "url": "http://localhost:8080/BITACORA-ESSALUD/",
->>>>>>> 07afd5cbc4b2752cb64c916cf739085c964bbaf4
+
+
+
             "webRoot": "${workspaceFolder}"
         }
     ]
