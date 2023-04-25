@@ -1,14 +1,14 @@
 <?php
 
 session_start();
-	if (!isset($_SESSION['nombre'])) {
-		header('Location: login.php');
-	}elseif(isset($_SESSION['nombre'])){
-		if(isset($_POST['fecha']) && isset($_POST['hora'])&& isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR'])&& isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa'])&& isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail'])&& isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp'])&& isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
-    require_once "database.php";  
-	}else{
-		echo "Error en el sistema";
-	}
+if (!isset($_SESSION['nombre'])) {
+  header('Location: login.php');
+} elseif (isset($_SESSION['nombre'])) {
+  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
+    require_once "database.php";
+} else {
+  echo "Error en el sistema";
+}
 
 
 
@@ -17,6 +17,7 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,15 +29,15 @@ session_start();
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-primary">
-  <div class="container-fluid">
-    <a class="navbar-brand">EsSalud</a>
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand">EsSalud</a>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
- 
+
       </div>
       <a class="btn btn-light" href="cerrar.php"> Cerrar Sesion</a>
-  </div>
-</nav>
+    </div>
+  </nav>
   <div class="page-header bg-secondary text-white text-center">
     <span class="h2">BITACORA ESSI</span>
   </div>
@@ -49,7 +50,7 @@ session_start();
     <p></p>
     <div class="form-group">
       <label for="hora">Hora</label>
-      <input type="time" name ="hora" id="startTime" />
+      <input type="time" name="hora" id="startTime" />
     </div>
     <p></p>
     <div class="form-group">
@@ -57,36 +58,39 @@ session_start();
     </div>
     <p></p>
     <select name="cas" id="lang">
-    <option value="seleccionarcas">Seleccionar CAS</option>
-          <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo</option>
-          <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo</option>
-          <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
-          <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
-          <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
-          <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
-          <option value="Centro Médico Aplao">Centro Médico Aplao</option>
-          <option value="CAP I Chivay">CAP I Chivay</option>
-          <option value="CAP II Hunter">CAP II Hunter</option>
-          <option value="CAP I El Pedregal">CAP I El Pedregal</option>
-          <option value="CAP I Yura">CAP I Yura</option>
-          <option value="CAP III Paucarpata">CAP III Paucarpata</option>
-          <option value="CAP III Miraflores">CAP III Miraflores</option>
-          <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado</option>
-          <option value="Posta Médica Acarí">Posta Médica Acarí</option>
-          <option value="Posta Médica Atico">Posta Médica Atico</option>
-          <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
-          <option value="Posta Médica Chala">Posta Médica Chala</option>
-          <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
-          <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
-          <option value="Posta Médica Corire">Posta Médica Corire</option>
-          <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
-          <option value="Posta Medica La Joya">Posta Medica La Joya</option>
-          <option value="Posta Médica Mataran">Posta Médica Matarani</option>
-          <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
-          <option value="Posta Médica Vitor">Posta Médica Vitor</option>
-          <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
-      </select>
-  
+      <option value="seleccionarcas">Seleccionar CAS</option>
+      <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo
+      </option>
+      <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo
+      </option>
+      <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
+      <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
+      <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
+      <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
+      <option value="Centro Médico Aplao">Centro Médico Aplao</option>
+      <option value="CAP I Chivay">CAP I Chivay</option>
+      <option value="CAP II Hunter">CAP II Hunter</option>
+      <option value="CAP I El Pedregal">CAP I El Pedregal</option>
+      <option value="CAP I Yura">CAP I Yura</option>
+      <option value="CAP III Paucarpata">CAP III Paucarpata</option>
+      <option value="CAP III Miraflores">CAP III Miraflores</option>
+      <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado
+      </option>
+      <option value="Posta Médica Acarí">Posta Médica Acarí</option>
+      <option value="Posta Médica Atico">Posta Médica Atico</option>
+      <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
+      <option value="Posta Médica Chala">Posta Médica Chala</option>
+      <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
+      <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
+      <option value="Posta Médica Corire">Posta Médica Corire</option>
+      <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
+      <option value="Posta Medica La Joya">Posta Medica La Joya</option>
+      <option value="Posta Médica Mataran">Posta Médica Matarani</option>
+      <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
+      <option value="Posta Médica Vitor">Posta Médica Vitor</option>
+      <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
+    </select>
+
     <div class="form-group">
       <label for="essi">ESSI/Explota: </label>
     </div>
@@ -95,27 +99,27 @@ session_start();
 
     <input type="checkbox" id="explota" name="checkbox[]" value="Explota"> <label for="cbox2">EXPLOTA</label>
 
-   
+
     <p></p>
     <div class="form-group">
       <label for="modulo">Modulo</label>
     </div>
-      
-      <select name="modulos" id="lang">
-        <option value=" ">Seleccionar modulo</option>
-        <option value="Admisión y Citas">Admisión y Citas</option>
-        <option value="Consulta Externa">Consulta Externa</option>
-        <option value="Emergencia">Emergencia</option>
-        <option value="Hospitalización">Hospitalización</option>
-        <option value="Centro Quirúrgico">Centro Quirúrgico</option>
-        <option value="Farmacia y Depósitos">Farmacia y Depósitos</option>
-        <option value="Ayuda al Dx">Ayuda al Dx</option>
-        <option value="Reportes">Reportes</option>
-        <option value="Utilitarios">Utilitarios</option>
-        <option value="Tablas del Sistema">Tablas del Sistema</option>
-        <option value="Liquidaciones">Liquidaciones</option>
-        <option value="Seguridad">Seguridad</option>
-      </select>
+
+    <select name="modulos" id="lang">
+      <option value=" ">Seleccionar modulo</option>
+      <option value="Admisión y Citas">Admisión y Citas</option>
+      <option value="Consulta Externa">Consulta Externa</option>
+      <option value="Emergencia">Emergencia</option>
+      <option value="Hospitalización">Hospitalización</option>
+      <option value="Centro Quirúrgico">Centro Quirúrgico</option>
+      <option value="Farmacia y Depósitos">Farmacia y Depósitos</option>
+      <option value="Ayuda al Dx">Ayuda al Dx</option>
+      <option value="Reportes">Reportes</option>
+      <option value="Utilitarios">Utilitarios</option>
+      <option value="Tablas del Sistema">Tablas del Sistema</option>
+      <option value="Liquidaciones">Liquidaciones</option>
+      <option value="Seguridad">Seguridad</option>
+    </select>
 
 
     <div class="form-group">
@@ -127,7 +131,7 @@ session_start();
     <p></p>
     <div class="form-group">
       <label for="responsable">Responsable que registra: </label>
-      <input type="text" class="form-control" name="responsable" >
+      <input type="text" class="form-control" name="responsable" value=<?php $_SESSION['nombre'] ?> disabled>
     </div>
     <p></p>
     <div class="form-group">
