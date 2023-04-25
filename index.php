@@ -1,9 +1,10 @@
 <?php  
 	session_start();
+    $bitacora = 0;
 	if (!isset($_SESSION['nombre'])) {
 		header('Location: login.php');
 	}elseif(isset($_SESSION['nombre'])){
-		include 'database/database.php';
+		include 'database.php';
 		$sentencia = $bd->query("SELECT * FROM bitacora;");
 		$bitacora = $sentencia->fetchAll(PDO::FETCH_OBJ);
 		//print_r($alumnos);
