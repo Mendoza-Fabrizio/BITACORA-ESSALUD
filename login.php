@@ -81,7 +81,7 @@
 
         
         <div> 
-        <input  type = "submit" value = "Ingresar">
+        <input class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" type = "submit" value = "Ingresar">
           
         </div>
         <div class="d-flex gap-1 justify-content-center mt-1">
