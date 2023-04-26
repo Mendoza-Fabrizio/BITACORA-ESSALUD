@@ -47,7 +47,10 @@ $consulta->bindParam(':fechaFormal', $fechaFormal);
 $consulta->bindParam(':destinoFormal', $destinoFormal);
 
 if ($consulta->execute()) {
+
 	header("location:index.php");
+
+	echo "Se guardo correctamente";
 } else {
 	echo "No se guardo";
 }
