@@ -131,7 +131,7 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="responsable">Responsable que registra: </label>
-      <input type="text" class="form-control" name="responsable">
+      <input type="text" class="form-control" name="responsable" value=<?php echo $_SESSION['nombre'] ?> disabled>
     </div>
     <p></p>
     <div class="form-group">

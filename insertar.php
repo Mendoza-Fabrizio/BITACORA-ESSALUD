@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once "database.php";
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
@@ -7,7 +7,7 @@ $cas = $_POST['cas'];
 $essi_explota = $_POST['checkbox'][0];
 $modulos = $_POST['modulos'];
 $detalle = $_POST['detalle'];
-$responsable = $_POST['responsable'];
+$responsable = $_SESSION['nombre'];
 $UsuarioR = $_POST['UsuarioR'];
 $fechasoporteessi = $_POST['fechasoporteessi'];
 $fechasoportemesa = $_POST['fechasoportemesa'];
