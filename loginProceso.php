@@ -1,10 +1,10 @@
 <?php 
 	session_start();
 	include_once 'conexionlogin.php';
-	$usuario = $_POST['nombre'];
+	$usuario = $_POST['codigo'];
 	$contrasena = $_POST['password'];
 	$sentencia = $bd->prepare('select * from usuario where 
-								nombre = ? and contrasena = ?;');
+								codigo = ? and contrasena = ?;');
 	$sentencia->execute([$usuario, $contrasena]);
 	$datos = $sentencia->fetch(PDO::FETCH_OBJ);
 	//print_r($datos);
