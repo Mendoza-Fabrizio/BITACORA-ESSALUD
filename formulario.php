@@ -28,7 +28,7 @@ if (!isset($_SESSION['nombre'])) {
   <title>Bitacora</title>
 </head>
 
-<body >
+<body>
   <nav class="navbar navbar-dark " style="background-color: #44bcd8;">
     <div class="container-fluid">
       <a class="navbar-brand">EsSalud</a>
@@ -45,7 +45,7 @@ if (!isset($_SESSION['nombre'])) {
     <legend class="text-center-success">REGISTRO DE DATOS</legend>
     <div class="form-group">
       <label for="fecha">Fecha:</label>
-      <input type="date" name="fecha">
+      <input type="date" name="fecha" id="fechaRegistro">
     </div>
     <p></p>
     <div class="form-group">
@@ -162,7 +162,7 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaTelef">Fecha:</label>
       <input type="date" name="fechaTelef">
       <label for="destinoTelef">Destino:</label>
-      <input type="text" name="destinoTelef"  autocomplete="off">
+      <input type="text" name="destinoTelef" autocomplete="off">
     </div>
     <p></p>
     <div class="form-group">
@@ -173,7 +173,7 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaEmail">Fecha:</label>
       <input type="date" name="fechaEmail">
       <label for="destinoEmail">Destino:</label>
-      <input type="text" name="destinoEmail"  autocomplete="off">
+      <input type="text" name="destinoEmail" autocomplete="off">
     </div>
     <p></p>
     <div class="form-group">
@@ -183,7 +183,7 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaWspp">Fecha:</label>
       <input type="date" name="fechaWspp">
       <label for="destinoWspp">Destino:</label>
-      <input type="text" name="destinoWspp"  autocomplete="off">
+      <input type="text" name="destinoWspp" autocomplete="off">
     </div>
     <p></p>
     <div class="form-group">
@@ -192,7 +192,7 @@ if (!isset($_SESSION['nombre'])) {
         <label for="fechaFormal">Fecha:</label>
         <input type="date" name="fechaFormal">
         <label for="destinoEmail">Destino:</label>
-        <input type="text" name="destinoFormal"  autocomplete="off">
+        <input type="text" name="destinoFormal" autocomplete="off">
       </div>
     </div>
     <p></p>
@@ -200,7 +200,9 @@ if (!isset($_SESSION['nombre'])) {
       <input type="submit" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
     <input type="hidden" name="oculto" value="1">
-    <script> src</script>
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+    </script>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
