@@ -23,16 +23,26 @@
         <div class="input-group-text bg-info">
           <img src="login/logo/usuario1.png" alt="username-icon" style="height: 1rem" />
         </div>
+<<<<<<< HEAD
         <input class="form-control bg-light" type="text" placeholder="Nombre completo" autocomplete="off" id="nombre"
           name="nombre" autocomplete="off"  required />
+=======
+        <input class="form-control bg-light" type="text" placeholder="Nombre completo" autocomplete="off"
+          name="nombre" />
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
       <div>
         <div class="input-group mt-4">
           <div class="input-group-text bg-info">
             <img src="login/logo/dni.png" alt="email-icon" style="height: 1rem" />
           </div>
+<<<<<<< HEAD
           <input class="form-control bg-light" type="tel" placeholder="Documento de Identidad" autocomplete="off"
           id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
+=======
+          <input class="form-control bg-light" type="text" placeholder="Documento de Identidad" autocomplete="off"
+            id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
 
         </div>
         <p id="dni_error" class="error_message"></p>
@@ -42,23 +52,36 @@
           <img src="login/logo/email.png" alt="email-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="text" placeholder="Correo Electronico" autocomplete="off"
+<<<<<<< HEAD
           name="email" required/>
+=======
+          name="email" />
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
 
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img src="login/logo/phone.png" alt="telefono-icon" style="height: 1rem" />
         </div>
+<<<<<<< HEAD
         <input class="form-control bg-light" type="tel" placeholder="Telefono " autocomplete="off"  id ="celular" 
         onchange="validarNum();" maxlength="9" name="celular"/>
       </div>
       <p id="celular_error" class="error_message"></p>
+=======
+        <input class="form-control bg-light" type="text" placeholder="Telefono " autocomplete="off" name="celular" />
+      </div>
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       <p></p>
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
           <img src="login/logo/contrasena1.png" alt="password-icon" style="height: 1rem" />
         </div>
+<<<<<<< HEAD
         <input class="form-control bg-light" type="password" placeholder="Contraseña" autocomplete="off" name="pass" required/>
+=======
+        <input class="form-control bg-light" type="password" placeholder="Contraseña" autocomplete="off" name="pass" />
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
 
       <div name="submit">
@@ -72,7 +95,10 @@
 
 </html>
 <script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
   const validarForm = () => {
     let dni = document.getElementById("dni");
     let enviar = document.getElementById("enviar");
@@ -85,6 +111,7 @@
       dni_error.innerHTML = "";
     }
   }
+<<<<<<< HEAD
 
   const validarNum = () =>{
     let celular =document.getElementById("celular");
@@ -108,4 +135,12 @@ if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['email']) 
 }
 
 
+=======
+</script>
+<?php
+
+if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['email']) && isset($_POST['celular']) && isset($_POST['pass']))
+
+  require_once "conexionsignup.php";
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
 ?>

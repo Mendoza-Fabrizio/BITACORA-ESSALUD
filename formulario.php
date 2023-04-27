@@ -28,7 +28,7 @@ if (!isset($_SESSION['nombre'])) {
   <title>Bitacora</title>
 </head>
 
-<body >
+<body>
   <nav class="navbar navbar-dark " style="background-color: #44bcd8;">
     <div class="container-fluid">
       <a class="navbar-brand">EsSalud</a>
@@ -44,8 +44,13 @@ if (!isset($_SESSION['nombre'])) {
   <form action="insertar.php" method="POST" style=" width: 60%; margin: 0 auto;">
     <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
     <div class="form-group">
+<<<<<<< HEAD
       <label for="fecha">Fecha de Registro:</label>
       <input type="date" name="fecha" id="fecha" id="fechaRegistro">
+=======
+      <label for="fecha">Fecha:</label>
+      <input type="date" name="fecha" id="fechaRegistro">
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
     </div>
     <p></p>
     <div class="form-group">
@@ -173,7 +178,11 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaTelef">Fecha:</label>
       <input type="date" name="fechaTelef" required>
       <label for="destinoTelef">Destino:</label>
+<<<<<<< HEAD
       <input type="text" name="destinoTelef"  autocomplete="off" required>
+=======
+      <input type="text" name="destinoTelef" autocomplete="off">
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
     </div>
     <p></p>
     <div class="form-group">
@@ -184,7 +193,11 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaEmail">Fecha:</label>
       <input type="date" name="fechaEmail" required>
       <label for="destinoEmail">Destino:</label>
+<<<<<<< HEAD
       <input type="text" name="destinoEmail"  autocomplete="off" required>
+=======
+      <input type="text" name="destinoEmail" autocomplete="off">
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
     </div>
     <p></p>
     <div class="form-group">
@@ -194,7 +207,11 @@ if (!isset($_SESSION['nombre'])) {
       <label for="fechaWspp">Fecha:</label>
       <input type="date" name="fechaWspp" required>
       <label for="destinoWspp">Destino:</label>
+<<<<<<< HEAD
       <input type="text" name="destinoWspp"  autocomplete="off" required>
+=======
+      <input type="text" name="destinoWspp" autocomplete="off">
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
     </div>
     <p></p>
     <div class="form-group">
@@ -203,7 +220,11 @@ if (!isset($_SESSION['nombre'])) {
         <label for="fechaFormal">Fecha:</label>
         <input type="date" name="fechaFormal" required>
         <label for="destinoEmail">Destino:</label>
+<<<<<<< HEAD
         <input type="text" name="destinoFormal"  autocomplete="off" required>
+=======
+        <input type="text" name="destinoFormal" autocomplete="off">
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
     </div>
     <p></p>
@@ -211,11 +232,17 @@ if (!isset($_SESSION['nombre'])) {
       <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
     <input type="hidden" name="oculto" value="1">
+<<<<<<< HEAD
     <script> src</script>
     <script>
       fechaRegistro.max = new Date().toISOString().split("T")[0];
     </script>
 
+=======
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+    </script>
+>>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
