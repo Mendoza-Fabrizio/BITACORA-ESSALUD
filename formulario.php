@@ -42,22 +42,22 @@ if (!isset($_SESSION['nombre'])) {
     <span class="h2">BITACORA ESSI</span>
   </div>
   <form action="insertar.php" method="POST" style=" width: 60%; margin: 0 auto;">
-    <legend class="text-center-success">REGISTRO DE DATOS</legend>
+    <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
     <div class="form-group">
       <label for="fecha">Fecha:</label>
-      <input type="date" name="fecha">
+      <input type="date" name="fecha" id="fecha"required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="hora">Hora:</label>
-      <input type="time" name="hora" id="startTime" />
+      <input type="time" name="hora" id="startTime" required/>
     </div>
     <p></p>
-    <div class="form-group">
+    <div class="form-group" >
       <label for="cas">Dependencia:</label>
     </div>
     <p></p>
-    <select name="cas" id="lang">
+    <select name="cas" id="lang" required>
       <option value="seleccionarcas">Seleccionar CAS</option>
       <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo
       </option>
@@ -91,7 +91,7 @@ if (!isset($_SESSION['nombre'])) {
       <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
     </select>
 
-    <div class="form-group">
+    <div class="form-group" required>
       <label for="essi">ESSI/Explota: </label>
     </div>
 
@@ -105,7 +105,7 @@ if (!isset($_SESSION['nombre'])) {
       <label for="modulo">Modulo:</label>
     </div>
 
-    <select name="modulos" id="lang">
+    <select name="modulos" id="lang" required>
       <option value=" ">Seleccionar modulo</option>
       <option value="Admisión y Citas">Admisión y Citas</option>
       <option value="Consulta Externa">Consulta Externa</option>
@@ -124,7 +124,7 @@ if (!isset($_SESSION['nombre'])) {
 
     <div class="form-group">
       <label for="detalle"> <i class="bi bi-chat-right-dots-fill" required></i> Detalle del problema:</label>
-      <textarea name="detalle" id="detalle" class="form-control" placeholder="ej."></textarea>
+      <textarea name="detalle" id="detalle" class="form-control" placeholder="ej." required></textarea>
       <div class="detalle text-danger"></div>
 
     </div>
@@ -136,23 +136,23 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="UsuarioR">Usuario que reporta:</label>
-      <input type="text" class="form-control" name="UsuarioR">
+      <input type="text" class="form-control" name="UsuarioR" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="fechaSoporte">Fecha a soporte ESSI:</label>
-      <input type="date" name="fechasoporteessi">
+      <input type="date" name="fechasoporteessi" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="fechaSoporteMesa">Fecha Soporte Mesa de Ayuda:</label>
-      <input type="date" name="fechasoportemesa">
+      <input type="date" name="fechasoportemesa" required>
 
     </div>
     <p></p>
     <div class="form-group">
       <label for="nroCasoMesa">Numero de Caso Mesa de Ayuda:</label>
-      <input type="text" class="form-control" name="nroCasoMesa">
+      <input type="text" class="form-control" name="nroCasoMesa" required>
 
     </div>
     <div class="form-group">
@@ -160,9 +160,9 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <div class="form-group">
       <label for="fechaTelef">Fecha:</label>
-      <input type="date" name="fechaTelef">
+      <input type="date" name="fechaTelef" required>
       <label for="destinoTelef">Destino:</label>
-      <input type="text" name="destinoTelef"  autocomplete="off">
+      <input type="text" name="destinoTelef"  autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
@@ -171,9 +171,9 @@ if (!isset($_SESSION['nombre'])) {
 
     <div class="form-group">
       <label for="fechaEmail">Fecha:</label>
-      <input type="date" name="fechaEmail">
+      <input type="date" name="fechaEmail" required>
       <label for="destinoEmail">Destino:</label>
-      <input type="text" name="destinoEmail"  autocomplete="off">
+      <input type="text" name="destinoEmail"  autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
@@ -181,23 +181,23 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <div class="form-group">
       <label for="fechaWspp">Fecha:</label>
-      <input type="date" name="fechaWspp">
+      <input type="date" name="fechaWspp" required>
       <label for="destinoWspp">Destino:</label>
-      <input type="text" name="destinoWspp"  autocomplete="off">
+      <input type="text" name="destinoWspp"  autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="reporteFormal">Reporte Formal a:</label>
       <div class="form-group">
         <label for="fechaFormal">Fecha:</label>
-        <input type="date" name="fechaFormal">
+        <input type="date" name="fechaFormal" required>
         <label for="destinoEmail">Destino:</label>
-        <input type="text" name="destinoFormal"  autocomplete="off">
+        <input type="text" name="destinoFormal"  autocomplete="off" required>
       </div>
     </div>
     <p></p>
     <div class="form-group">
-      <input type="submit" class="btn btn-primary form-control" style="background-color: #808080;">
+      <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
     <input type="hidden" name="oculto" value="1">
     <script> src</script>

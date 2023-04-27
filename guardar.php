@@ -22,4 +22,5 @@ if($consulta -> execute()){
 }else{
     echo "No se ha podido guardar datos ...";
 }
+
 ?>  
