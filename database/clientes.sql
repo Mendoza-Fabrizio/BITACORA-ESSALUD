@@ -6,6 +6,8 @@ CREATE TABLE bitacora(
     idbitacora	int(11) NOT NULL AUTO_INCREMENT,
     Fecha	DATE NOT NULL,
     Hora TIME NOT NULL,
+    fecha_actual DATE NOT NULL,
+    hora_actual DATE NOT NULL,
     CAS	varchar(100) NOT NULL,
     essi_explota varchar(10) NOT NULL,
     modulo varchar(50) NOT NULL,

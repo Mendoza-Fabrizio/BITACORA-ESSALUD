@@ -37,8 +37,10 @@
                     <thead>
                         <tr>
                             <th rowspan="2">ID</th>
-                            <th rowspan="2">Fecha</th>
-                            <th rowspan="2">Hora</th>
+                            <th rowspan="2">Fecha de Reporte</th>
+                            <th rowspan="2">Hora de Reporte</th>
+                            <th rowspan="2">Fecha actual</th>
+                            <th rowspan="2">Hora actual</th>
                             <th rowspan="2">CAS</th>
                             <th rowspan="2">ESSL/Explota</th>
                             <th rowspan="2">Módulo</th>
@@ -71,6 +73,8 @@
                                 <td><?php echo $dato->idbitacora; ?></td>
                                 <td><?php echo $dato->Fecha; ?></td>
                                 <td><?php echo $dato->Hora; ?></td>
+                                <td><?php echo $dato->fecha_actual; ?></td>
+                                <td><?php echo $dato->hora_actual; ?></td>
                                 <td><?php echo $dato->CAS; ?></td>
                                 <td><?php echo $dato->essi_explota; ?></td>
                                 <td><?php echo $dato->modulo; ?></td>

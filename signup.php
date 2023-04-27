@@ -32,7 +32,7 @@
             <img src="login/logo/dni.png" alt="email-icon" style="height: 1rem" />
           </div>
           <input class="form-control bg-light" type="tel" placeholder="Documento de Identidad" autocomplete="off"
-            id="dni" name="codigo" onchange="validarForm();" pattern="[0-9]" maxlength="8"  required/>
+          id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
 
         </div>
         <p id="dni_error" class="error_message"></p>
@@ -50,7 +50,7 @@
           <img src="login/logo/phone.png" alt="telefono-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="tel" placeholder="Telefono " autocomplete="off"  id ="celular" 
-        onchange="validarNum();" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" maxlength="9" name="celular" required/>
+        onchange="validarNum();" maxlength="9" name="celular"/>
       </div>
       <p id="celular_error" class="error_message"></p>
       <p></p>
@@ -89,7 +89,7 @@
   const validarNum = () =>{
     let celular =document.getElementById("celular");
     let enviar =document.getElementById("enviar");
-    if(celular.value.length !=9 || (/^\d{9}$/.test(celular))){
+    if(celular.value.length !=9){
       enviar.setAttribute('disabled', '');
       celular_error.innerHTML = "El telefeno debe tener 9 digitos";
     }else {

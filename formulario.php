@@ -44,15 +44,26 @@ if (!isset($_SESSION['nombre'])) {
   <form action="insertar.php" method="POST" style=" width: 60%; margin: 0 auto;">
     <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
     <div class="form-group">
-      <label for="fecha">Fecha:</label>
-      <input type="date" name="fecha" id="fecha"required>
+      <label for="fecha">Fecha de Registro:</label>
+      <input type="date" name="fecha" id="fecha" id="fechaRegistro">
     </div>
     <p></p>
     <div class="form-group">
-      <label for="hora">Hora:</label>
+      <label for="hora">Hora de Registro:</label>
       <input type="time" name="hora" id="startTime" required/>
     </div>
     <p></p>
+    <div class="form-group">
+      <label for="fecha">Fecha Actual:</label>
+      <input type="date" name="fecha_actual" id="fecha" value="">
+    </div>
+    <p></p>
+    <div class="form-group">
+      <label for="hora">Hora Actual:</label>
+      <input type="time" name="hora_actual" id="startTime" required/>
+    </div>
+    <p></p>
+
     <div class="form-group" >
       <label for="cas">Dependencia:</label>
     </div>
@@ -201,9 +212,15 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <input type="hidden" name="oculto" value="1">
     <script> src</script>
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+    </script>
+
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
     crossorigin="anonymous"></script>
 
+
 </body>
+
