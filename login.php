@@ -29,7 +29,7 @@ if (isset($_SESSION['nombre'])) {
           <img src="login/logo/dni.png" alt="username-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="text" id="dni" placeholder="Documento de Identidad" name="codigo"
-          required />
+          required onkeypress="return validarKey(event);" />
       </div>
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
@@ -59,6 +59,22 @@ if (isset($_SESSION['nombre'])) {
         <a href="signup.php" class="text-decoration-none text-info fw-semibold">Registrarse</a>
       </div>
   </form>
+  <script>
+    function validarKey(evt) {
+
+      // code is the decimal ASCII representation of the pressed key.
+      var code = (evt.which) ? evt.which : evt.keyCode;
+
+      if (code == 8) { // backspace.
+        return true;
+      } else if (code >= 48 && code <= 57) { // is a number.
+        return true;
+      } else { // other keys.
+        return false;
+      }
+    }
+  </script>
+  </script>
 </body>
 
 

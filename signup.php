@@ -32,7 +32,7 @@
             <img src="login/logo/dni.png" alt="email-icon" style="height: 1rem" />
           </div>
           <input class="form-control bg-light" type="text" placeholder="Documento de Identidad" autocomplete="off"
-            id="dni" name="codigo" onchange="validarForm();" pattern="[\d]" maxlength="8" />
+            id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
 
         </div>
         <p id="dni_error" class="error_message"></p>
