@@ -45,7 +45,7 @@ if (!isset($_SESSION['nombre'])) {
     <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
     <div class="form-group">
       <label for="fecha">Fecha de Registro:</label>
-      <input type="date" name="fecha" id="fecha" id="fechaRegistro">
+      <input type="date" name="fecha" id="fechaRegistro">
     </div>
     <p></p>
     <div class="form-group">
@@ -55,12 +55,12 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="fecha">Fecha Actual:</label>
-      <input type="date" name="fecha_actual" id="fecha" value="">
+      <input type="date" name="fecha"  value="<?php echo date("Y-m-d");?>" disabled>
     </div>
     <p></p>
     <div class="form-group">
       <label for="hora">Hora Actual:</label>
-      <input type="time" name="hora_actual" id="startTime" required />
+      <input type="time" name="hora_actual" id="HoraActual"  value="<?php date_default_timezone_set('America/Lima'); echo date("h:i:s");?>" disabled required />
     </div>
     <p></p>
 
@@ -152,12 +152,12 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="fechaSoporte">Fecha a soporte ESSI:</label>
-      <input type="date" name="fechasoporteessi" required>
+      <input type="date" name="fechasoporteessi" id="fechaSoporteEssi" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="fechaSoporteMesa">Fecha Soporte Mesa de Ayuda:</label>
-      <input type="date" name="fechasoportemesa" required>
+      <input type="date" name="fechasoportemesa" id="fechaSoporteMesa" required>
 
     </div>
     <p></p>
@@ -171,12 +171,10 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <div class="form-group">
       <label for="fechaTelef">Fecha:</label>
-      <input type="date" name="fechaTelef" required>
+      <input type="date" name="fechaTelef" id="fechaTelefono" required>
       <label for="destinoTelef">Destino:</label>
-      <<<<<<< HEAD <input type="text" name="destinoTelef" autocomplete="off" required>
-        =======
-        <input type="text" name="destinoTelef" autocomplete="off">
-        >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+      <input type="text" name="destinoTelef" autocomplete="off" required>
+
     </div>
     <p></p>
     <div class="form-group">
@@ -185,12 +183,9 @@ if (!isset($_SESSION['nombre'])) {
 
     <div class="form-group">
       <label for="fechaEmail">Fecha:</label>
-      <input type="date" name="fechaEmail" required>
+      <input type="date" name="fechaEmail" id="fechaEmail" required>
       <label for="destinoEmail">Destino:</label>
-      <<<<<<< HEAD <input type="text" name="destinoEmail" autocomplete="off" required>
-        =======
-        <input type="text" name="destinoEmail" autocomplete="off">
-        >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+      <input type="text" name="destinoEmail" autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
@@ -198,24 +193,22 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <div class="form-group">
       <label for="fechaWspp">Fecha:</label>
-      <input type="date" name="fechaWspp" required>
+      <input type="date" name="fechaWspp" id="fechaWspp" required>
       <label for="destinoWspp">Destino:</label>
-      <<<<<<< HEAD <input type="text" name="destinoWspp" autocomplete="off" required>
-        =======
-        <input type="text" name="destinoWspp" autocomplete="off">
-        >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+      <input type="text" name="destinoWspp" autocomplete="off" required>
+
+
     </div>
     <p></p>
     <div class="form-group">
       <label for="reporteFormal">Reporte Formal a:</label>
       <div class="form-group">
         <label for="fechaFormal">Fecha:</label>
-        <input type="date" name="fechaFormal" required>
+        <input type="date" name="fechaFormal" id="fechaFormal" required>
         <label for="destinoEmail">Destino:</label>
-        <<<<<<< HEAD <input type="text" name="destinoFormal" autocomplete="off" required>
-          =======
-          <input type="text" name="destinoFormal" autocomplete="off">
-          >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+        <input type="text" name="destinoFormal" autocomplete="off" required>
+
+
       </div>
     </div>
     <p></p>
@@ -223,16 +216,25 @@ if (!isset($_SESSION['nombre'])) {
       <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
     <input type="hidden" name="oculto" value="1">
-    <<<<<<< HEAD <script> src</script>
-      <script>
-        fechaRegistro.max = new Date().toISOString().split("T")[0];
-      </script>
+    
+    <script>
+    date = new Date();
+    year = date.getFullYear();
+    month = date.getMonth() + 1;
+    day = date.getDate();
+    document.getElementById("fechaActual").innerHTML = year + "/" +  month  + "/" +day;
+    </script>
 
-      =======
-      <script>
-        fechaRegistro.max = new Date().toISOString().split("T")[0];
-      </script>
-      >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+      fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
+      fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
+      fechaTelefono.max = new Date().toISOString().split("T")[0];
+      fechaEmail.max = new Date().toISOString().split("T")[0];
+      fechaWspp.max = new Date().toISOString().split("T")[0];
+      fechaFormal.max = new Date().toISOString().split("T")[0];
+
+    </script>
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"

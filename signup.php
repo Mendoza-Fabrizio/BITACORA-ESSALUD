@@ -23,26 +23,16 @@
         <div class="input-group-text bg-info">
           <img src="login/logo/usuario1.png" alt="username-icon" style="height: 1rem" />
         </div>
-<<<<<<< HEAD
-        <input class="form-control bg-light" type="text" placeholder="Nombre completo" autocomplete="off" id="nombre"
-          name="nombre" autocomplete="off"  required />
-=======
         <input class="form-control bg-light" type="text" placeholder="Nombre completo" autocomplete="off"
           name="nombre" />
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
       <div>
         <div class="input-group mt-4">
           <div class="input-group-text bg-info">
             <img src="login/logo/dni.png" alt="email-icon" style="height: 1rem" />
           </div>
-<<<<<<< HEAD
-          <input class="form-control bg-light" type="tel" placeholder="Documento de Identidad" autocomplete="off"
-          id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
-=======
           <input class="form-control bg-light" type="text" placeholder="Documento de Identidad" autocomplete="off"
-            id="dni" name="codigo" onchange="validarForm();" maxlength="8" />
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+            id="dni" name="codigo" onchange="validarForm();" maxlength="8" onkeypress="return validarKey(event);" />
 
         </div>
         <p id="dni_error" class="error_message"></p>
@@ -52,36 +42,24 @@
           <img src="login/logo/email.png" alt="email-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="text" placeholder="Correo Electronico" autocomplete="off"
-<<<<<<< HEAD
-          name="email" required/>
-=======
           name="email" />
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
 
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img src="login/logo/phone.png" alt="telefono-icon" style="height: 1rem" />
         </div>
-<<<<<<< HEAD
-        <input class="form-control bg-light" type="tel" placeholder="Telefono " autocomplete="off"  id ="celular" 
-        onchange="validarNum();" maxlength="9" name="celular"/>
+        <input class="form-control bg-light" type="tel" placeholder="Telefono " autocomplete="off" id="celular"
+          onchange="validarNum();" maxlength="9" name="celular" onkeypress="return validarKey(event);" />
       </div>
       <p id="celular_error" class="error_message"></p>
-=======
-        <input class="form-control bg-light" type="text" placeholder="Telefono " autocomplete="off" name="celular" />
-      </div>
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       <p></p>
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
           <img src="login/logo/contrasena1.png" alt="password-icon" style="height: 1rem" />
         </div>
-<<<<<<< HEAD
-        <input class="form-control bg-light" type="password" placeholder="Contraseña" autocomplete="off" name="pass" required/>
-=======
-        <input class="form-control bg-light" type="password" placeholder="Contraseña" autocomplete="off" name="pass" />
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
+        <input class="form-control bg-light" type="password" placeholder="Contraseña" autocomplete="off" name="pass"
+          required />
       </div>
 
       <div name="submit">
@@ -95,10 +73,6 @@
 
 </html>
 <script>
-<<<<<<< HEAD
-
-=======
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
   const validarForm = () => {
     let dni = document.getElementById("dni");
     let enviar = document.getElementById("enviar");
@@ -111,36 +85,39 @@
       dni_error.innerHTML = "";
     }
   }
-<<<<<<< HEAD
 
-  const validarNum = () =>{
-    let celular =document.getElementById("celular");
-    let enviar =document.getElementById("enviar");
-    if(celular.value.length !=9){
+  const validarNum = () => {
+    let celular = document.getElementById("celular");
+    let enviar = document.getElementById("enviar");
+    if (celular.value.length != 9) {
       enviar.setAttribute('disabled', '');
       celular_error.innerHTML = "El telefeno debe tener 9 digitos";
-    }else {
+    } else {
       enviar.removeAttribute('disabled', '');
       celular_error.innerHTML = "";
     }
   }
+  function validarKey(evt) {
 
-  
+    // code is the decimal ASCII representation of the pressed key.
+    var code = (evt.which) ? evt.which : evt.keyCode;
+
+    if (code == 8) { // backspace.
+      return true;
+    } else if (code >= 48 && code <= 57) { // is a number.
+      return true;
+    } else { // other keys.
+      return false;
+    }
+  }
+
 </script>
 <?php
 
-if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['email']) && isset($_POST['celular']) && isset($_POST['pass'])){
+if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['email']) && isset($_POST['celular']) && isset($_POST['pass'])) {
 
   require_once "conexionsignup.php";
 }
 
 
-=======
-</script>
-<?php
-
-if (isset($_POST['nombre']) && isset($_POST['email']) && isset($_POST['email']) && isset($_POST['celular']) && isset($_POST['pass']))
-
-  require_once "conexionsignup.php";
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
 ?>

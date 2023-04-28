@@ -29,11 +29,7 @@ if (isset($_SESSION['nombre'])) {
           <img src="login/logo/dni.png" alt="username-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="text" id="dni" placeholder="Documento de Identidad" name="codigo"
-<<<<<<< HEAD
-        required onkeypress="return validarKey(event);" />
-=======
           required onkeypress="return validarKey(event);" />
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
       </div>
       <div class="input-group mt-1">
         <div class="input-group-text bg-info">
@@ -63,10 +59,6 @@ if (isset($_SESSION['nombre'])) {
         <a href="signup.php" class="text-decoration-none text-info fw-semibold">Registrarse</a>
       </div>
   </form>
-<<<<<<< HEAD
-
-=======
->>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
   <script>
     function validarKey(evt) {
 
