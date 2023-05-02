@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['nombre'])) {
   header('Location: login.php');
 } elseif (isset($_SESSION['nombre'])) {
-  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
+  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['fecha_actual'])&& isset($_POST['hora_actual'])&& isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
     require_once "database.php";
 } else {
   echo "Error en el sistema";

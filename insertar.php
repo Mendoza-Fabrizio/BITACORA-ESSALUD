@@ -1,11 +1,11 @@
 <?php
 session_start();
-date_default_timezone_set('America/Lima');
+
 require_once "database.php";
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
-$fecha_actual =  $_POST['fecha_actual'];
-$hora_actual =  $_POST['hora_actual'];
+$fecha_actual =  $_SESSION['fecha_actual'];
+$hora_actual =  $_SESSION['hora_actual'];
 $cas = $_POST['cas'];
 $essi_explota = $_POST['checkbox'][0];
 $modulos = $_POST['modulos'];
