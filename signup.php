@@ -18,7 +18,7 @@
       <div class="d-flex justify-content-center">
         <img src="login/logo/logo1.png" alt="login-icon" style="height: 7rem" />
       </div>
-      <div class="text-center fs-1 fw-bold">Sign Up</div>
+      <div class="text-center fs-1 fw-bold">Regístrate</div>
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img src="login/logo/usuario1.png" alt="username-icon" style="height: 1rem" />
@@ -66,7 +66,8 @@
         <input id="enviar" type="submit" name="enviar" value="Guardar"
           class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" disabled>
       </div>
-
+      
+      <div>¿Ya tienes una cuenta?<a href="login.php" aria-label="  Iniciar Sesión" style="text-decoration:none" class="text-decoration-none text-info fw-semibold">  Iniciar Sesión</a></div>
     </div>
   </form>
 </body>

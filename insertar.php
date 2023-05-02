@@ -2,10 +2,12 @@
 session_start();
 
 require_once "database.php";
+date_default_timezone_set('America/Lima');
+var_dump($_POST);
 $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
-$fecha_actual =  $_SESSION['fecha_actual'];
-$hora_actual =  $_SESSION['hora_actual'];
+$fecha_actual = date("Y-m-d");
+$hora_actual = date("h:i:s");
 $cas = $_POST['cas'];
 $essi_explota = $_POST['checkbox'][0];
 $modulos = $_POST['modulos'];
@@ -26,7 +28,7 @@ $destinoFormal = $_POST['destinoFormal'];
 
 $consulta = $pdo->prepare("INSERT INTO bitacora(Fecha,Hora,fecha_actual,hora_actual, CAS,essi_explota,modulo,detalle,responsable,usuario_reporte,fecha_essi_soporte,fecha_mesa_soporte,num_caso_mesa_ayuda,fecha_reporte_telefono,
     destino_reporte_telefono,fecha_reporte_email,destino_reporte_email,fecha_reporte_whatsapp,destino_reporte_whatsapp,fecha_reporte_formal,destino_reporte_formal) 
-	VALUES (:fecha,:hora,:fecha_actual',:hora_actual',:cas,:essi_explota,:modulos,:detalle,:responsable,:UsuarioR,:fechasoporteessi,:fechasoportemesa,:nroCasoMesa,:fechaTelef,:destinoTelef,
+	VALUES (:fecha,:hora,:fecha_actual,:hora_actual,:cas,:essi_explota,:modulos,:detalle,:responsable,:UsuarioR,:fechasoporteessi,:fechasoportemesa,:nroCasoMesa,:fechaTelef,:destinoTelef,
 	:fechaEmail,:destinoEmail,:fechaWspp, :destinoWspp,:fechaFormal,:destinoFormal)");
 
 $consulta->bindParam(':fecha', $fecha);

@@ -2,7 +2,7 @@
 $contrasena = '';
 $usuario = 'root';
 $nombrebd = 'essalud_essi';
-
+$bd = '';
 try {
 	$bd = new PDO(
 		'mysql:host=localhost;

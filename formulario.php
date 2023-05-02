@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['nombre'])) {
   header('Location: login.php');
 } elseif (isset($_SESSION['nombre'])) {
-  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['fecha_actual'])&& isset($_POST['hora_actual'])&& isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
+  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['fecha_actual']) && isset($_POST['hora_actual']) && isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
     require_once "database.php";
 } else {
   echo "Error en el sistema";
@@ -45,7 +45,7 @@ if (!isset($_SESSION['nombre'])) {
     <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
     <div class="form-group">
       <label for="fecha">Fecha de Registro:</label>
-      <input type="date" name="fecha" id="fechaRegistro">
+      <input type="date" name="fecha" id="fechaRegistro" required>
     </div>
     <p></p>
     <div class="form-group">
@@ -53,55 +53,42 @@ if (!isset($_SESSION['nombre'])) {
       <input type="time" name="hora" id="startTime" required />
     </div>
     <p></p>
-    <div class="form-group">
-      <label for="fecha">Fecha Actual:</label>
-      <input type="date" name="fecha_actual"  value="<?php echo date("Y-m-d");?>" disabled>
-    </div>
-    <p></p>
-    <div class="form-group">
-      <label for="hora">Hora Actual:</label>
-      <input type="time" name="hora_actual"  value="<?php date_default_timezone_set('America/Lima'); echo date("h:i:s");?>" disabled required />
-    </div>
-    <p></p>
-
-    <div class="form-group">
-      <label for="cas">Dependencia:</label>
-    </div>
-    <p></p>
-    <select name="cas" id="lang" required>
-      <option value="seleccionarcas">Seleccionar CAS</option>
-      <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo
-      </option>
-      <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo
-      </option>
-      <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
-      <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
-      <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
-      <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
-      <option value="Centro Médico Aplao">Centro Médico Aplao</option>
-      <option value="CAP I Chivay">CAP I Chivay</option>
-      <option value="CAP II Hunter">CAP II Hunter</option>
-      <option value="CAP I El Pedregal">CAP I El Pedregal</option>
-      <option value="CAP I Yura">CAP I Yura</option>
-      <option value="CAP III Paucarpata">CAP III Paucarpata</option>
-      <option value="CAP III Miraflores">CAP III Miraflores</option>
-      <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado
-      </option>
-      <option value="Posta Médica Acarí">Posta Médica Acarí</option>
-      <option value="Posta Médica Atico">Posta Médica Atico</option>
-      <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
-      <option value="Posta Médica Chala">Posta Médica Chala</option>
-      <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
-      <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
-      <option value="Posta Médica Corire">Posta Médica Corire</option>
-      <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
-      <option value="Posta Medica La Joya">Posta Medica La Joya</option>
-      <option value="Posta Médica Mataran">Posta Médica Matarani</option>
-      <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
-      <option value="Posta Médica Vitor">Posta Médica Vitor</option>
-      <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
-    </select>
-
+    <div class="form-floating dropdown">
+      <select class="form-select" name="cas" id="lang" aria-label="Floating label select example" required>
+        <option selected></option>
+        <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo
+        </option>
+        <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo
+        </option>
+        <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
+        <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
+        <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
+        <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
+        <option value="Centro Médico Aplao">Centro Médico Aplao</option>
+        <option value="CAP I Chivay">CAP I Chivay</option>
+        <option value="CAP II Hunter">CAP II Hunter</option>
+        <option value="CAP I El Pedregal">CAP I El Pedregal</option>
+        <option value="CAP I Yura">CAP I Yura</option>
+        <option value="CAP III Paucarpata">CAP III Paucarpata</option>
+        <option value="CAP III Miraflores">CAP III Miraflores</option>
+        <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado
+        </option>
+        <option value="Posta Médica Acarí">Posta Médica Acarí</option>
+        <option value="Posta Médica Atico">Posta Médica Atico</option>
+        <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
+        <option value="Posta Médica Chala">Posta Médica Chala</option>
+        <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
+        <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
+        <option value="Posta Médica Corire">Posta Médica Corire</option>
+        <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
+        <option value="Posta Medica La Joya">Posta Medica La Joya</option>
+        <option value="Posta Médica Mataran">Posta Médica Matarani</option>
+        <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
+        <option value="Posta Médica Vitor">Posta Médica Vitor</option>
+        <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
+      </select>
+    <label for="floatingSelect">Seleccione una Dependencia</label>
+      </div>
     <div class="form-group" required>
       <label for="essi">ESSI/Explota: </label>
     </div>
@@ -112,12 +99,9 @@ if (!isset($_SESSION['nombre'])) {
 
 
     <p></p>
-    <div class="form-group">
-      <label for="modulo">Modulo:</label>
-    </div>
-
-    <select name="modulos" id="lang" required>
-      <option value=" ">Seleccionar modulo</option>
+    <div class="form-floating ">
+    <select class="form-select dropdown" name="modulos" id="lang" required>
+      <option selected></option>
       <option value="Admisión y Citas">Admisión y Citas</option>
       <option value="Consulta Externa">Consulta Externa</option>
       <option value="Emergencia">Emergencia</option>
@@ -131,7 +115,8 @@ if (!isset($_SESSION['nombre'])) {
       <option value="Liquidaciones">Liquidaciones</option>
       <option value="Seguridad">Seguridad</option>
     </select>
-
+    <label for="floatingSelect">Seleccionar Modulo:</label>
+    </div>
 
     <div class="form-group">
       <label for="detalle"> <i class="bi bi-chat-right-dots-fill" required></i> Detalle del problema:</label>
@@ -215,17 +200,20 @@ if (!isset($_SESSION['nombre'])) {
     <div class="form-group">
       <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
+    <p></p>
+    <p></p>
+    <p></p>
     <input type="hidden" name="oculto" value="1">
     <script> src</script>
-      <script>
-        fechaRegistro.max = new Date().toISOString().split("T")[0];
-        fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
-        fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
-        fechaTelefono.max = new Date().toISOString().split("T")[0];
-        fechaEmail.max = new Date().toISOString().split("T")[0];
-        fechaWspp.max = new Date().toISOString().split("T")[0];
-        fechaFormal.max = new Date().toISOString().split("T")[0];
-      </script>
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+      fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
+      fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
+      fechaTelefono.max = new Date().toISOString().split("T")[0];
+      fechaEmail.max = new Date().toISOString().split("T")[0];
+      fechaWspp.max = new Date().toISOString().split("T")[0];
+      fechaFormal.max = new Date().toISOString().split("T")[0];
+    </script>
 
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

@@ -23,7 +23,7 @@ if (isset($_SESSION['nombre'])) {
       <div class="d-flex justify-content-center">
         <img src="login/logo/logo.png" alt="login-icon" style="height: 7rem" />
       </div>
-      <div class="text-center fs-1 fw-bold">Login</div>
+      <div class="text-center fs-1 fw-bold">Iniciar Sesión</div>
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img src="login/logo/dni.png" alt="username-icon" style="height: 1rem" />
