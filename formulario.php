@@ -4,7 +4,7 @@ session_start();
 if (!isset($_SESSION['nombre'])) {
   header('Location: login.php');
 } elseif (isset($_SESSION['nombre'])) {
-  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['fecha_actual'])&& isset($_POST['hora_actual'])&& isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
+  if (isset($_POST['fecha']) && isset($_POST['hora']) && isset($_POST['fecha_actual']) && isset($_POST['hora_actual']) && isset($_POST['cas']) && isset($_POST['checkbox']) && isset($_POST['modulos']) && isset($_POST['detalle']) && isset($_POST['responsable']) && isset($_POST['UsuarioR']) && isset($_POST['fechasoporteessi']) && isset($_POST['fechasoportemesa']) && isset($_POST['nroCasoMesa']) && isset($_POST['fechaTelef']) && isset($_POST['destinoTelef']) && isset($_POST['fechaEmail']) && isset($_POST['destinoEmail']) && isset($_POST['fechaWspp']) && isset($_POST['destinoWspp']) && isset($_POST['fechaFormal']) && isset($_POST['destinoFormal']))
     require_once "database.php";
 } else {
   echo "Error en el sistema";
@@ -55,12 +55,13 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="fecha">Fecha Actual:</label>
-      <input type="date" name="fecha_actual"  value="<?php echo date("Y-m-d");?>" disabled>
+      <input type="date" name="fecha_actual" id="fecha_actual" value="<?php echo date("Y-m-d"); ?>" disabled>
     </div>
     <p></p>
     <div class="form-group">
       <label for="hora">Hora Actual:</label>
-      <input type="time" name="hora_actual"  value="<?php date_default_timezone_set('America/Lima'); echo date("h:i:s");?>" disabled required />
+      <input type="time" name="hora_actual" id="hora_actual" value="<?php date_default_timezone_set('America/Lima');
+      echo date("h:i:s"); ?>" disabled required />
     </div>
     <p></p>
 
@@ -217,15 +218,15 @@ if (!isset($_SESSION['nombre'])) {
     </div>
     <input type="hidden" name="oculto" value="1">
     <script> src</script>
-      <script>
-        fechaRegistro.max = new Date().toISOString().split("T")[0];
-        fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
-        fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
-        fechaTelefono.max = new Date().toISOString().split("T")[0];
-        fechaEmail.max = new Date().toISOString().split("T")[0];
-        fechaWspp.max = new Date().toISOString().split("T")[0];
-        fechaFormal.max = new Date().toISOString().split("T")[0];
-      </script>
+    <script>
+      fechaRegistro.max = new Date().toISOString().split("T")[0];
+      fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
+      fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
+      fechaTelefono.max = new Date().toISOString().split("T")[0];
+      fechaEmail.max = new Date().toISOString().split("T")[0];
+      fechaWspp.max = new Date().toISOString().split("T")[0];
+      fechaFormal.max = new Date().toISOString().split("T")[0];
+    </script>
 
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
