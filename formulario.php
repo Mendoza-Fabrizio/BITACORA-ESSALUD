@@ -55,12 +55,12 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <div class="form-group">
       <label for="fecha">Fecha Actual:</label>
-      <input type="date" name="fecha"  value="<?php echo date("Y-m-d");?>" disabled>
+      <input type="date" name="fecha_actual"  value="<?php echo date("Y-m-d");?>" disabled>
     </div>
     <p></p>
     <div class="form-group">
       <label for="hora">Hora Actual:</label>
-      <input type="time" name="hora_actual" id="HoraActual"  value="<?php date_default_timezone_set('America/Lima'); echo date("h:i:s");?>" disabled required />
+      <input type="time" name="hora_actual"  value="<?php date_default_timezone_set('America/Lima'); echo date("h:i:s");?>" disabled required />
     </div>
     <p></p>
 
