@@ -216,25 +216,16 @@ if (!isset($_SESSION['nombre'])) {
       <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
     <input type="hidden" name="oculto" value="1">
-    
-    <script>
-    date = new Date();
-    year = date.getFullYear();
-    month = date.getMonth() + 1;
-    day = date.getDate();
-    document.getElementById("fechaActual").innerHTML = year + "/" +  month  + "/" +day;
-    </script>
+    <<<<<<< HEAD <script> src</script>
+      <script>
+        fechaRegistro.max = new Date().toISOString().split("T")[0];
+      </script>
 
-    <script>
-      fechaRegistro.max = new Date().toISOString().split("T")[0];
-      fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
-      fechaSoporteMesa.max = new Date().toISOString().split("T")[0];
-      fechaTelefono.max = new Date().toISOString().split("T")[0];
-      fechaEmail.max = new Date().toISOString().split("T")[0];
-      fechaWspp.max = new Date().toISOString().split("T")[0];
-      fechaFormal.max = new Date().toISOString().split("T")[0];
-
-    </script>
+      =======
+      <script>
+        fechaRegistro.max = new Date().toISOString().split("T")[0];
+      </script>
+      >>>>>>> 49374937d6b0e4e809e0000321c366d4cb9d8b66
   </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
