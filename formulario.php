@@ -43,96 +43,84 @@ if (!isset($_SESSION['nombre'])) {
   </div>
   <form action="insertar.php" method="POST" style=" width: 60%; margin: 0 auto;">
     <legend class="text-center-success">REGISTRO DE OCURRENCIA</legend>
-    <div class="form-group">
-      <label for="fecha">Fecha de Registro:</label>
-      <input type="date" name="fecha" id="fechaRegistro">
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="fecha">Fecha de Registro</span>
+      <input type="date" class="form-control" placeholder="Username" aria-label="Username" id="fechaRegistro"
+        aria-describedby="basic-addon1" name="fecha" required>
+      <span class="input-group-text" for="hora"">Hora de Registro</span>
+      <input type=" time" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="hora" id="startTime" required>
     </div>
-    <p></p>
-    <div class="form-group">
-      <label for="hora">Hora de Registro:</label>
-      <input type="time" name="hora" id="startTime" required />
-    </div>
-    <p></p>
-    <div class="form-group">
-      <label for="fecha">Fecha Actual:</label>
-      <input type="date" name="fecha_actual" id="fecha_actual" value="<?php echo date("Y-m-d"); ?>" disabled>
-    </div>
-    <p></p>
-    <div class="form-group">
-      <label for="hora">Hora Actual:</label>
-      <input type="time" name="hora_actual" id="hora_actual" value="<?php date_default_timezone_set('America/Lima');
-      echo date("h:i:s"); ?>" disabled required />
-    </div>
-    <p></p>
 
-    <div class="form-group">
-      <label for="cas">Dependencia:</label>
-    </div>
     <p></p>
-    <select name="cas" id="lang" required>
-      <option value="seleccionarcas">Seleccionar CAS</option>
-      <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin Escobedo
-      </option>
-      <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo
-      </option>
-      <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
-      <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
-      <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
-      <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
-      <option value="Centro Médico Aplao">Centro Médico Aplao</option>
-      <option value="CAP I Chivay">CAP I Chivay</option>
-      <option value="CAP II Hunter">CAP II Hunter</option>
-      <option value="CAP I El Pedregal">CAP I El Pedregal</option>
-      <option value="CAP I Yura">CAP I Yura</option>
-      <option value="CAP III Paucarpata">CAP III Paucarpata</option>
-      <option value="CAP III Miraflores">CAP III Miraflores</option>
-      <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado
-      </option>
-      <option value="Posta Médica Acarí">Posta Médica Acarí</option>
-      <option value="Posta Médica Atico">Posta Médica Atico</option>
-      <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
-      <option value="Posta Médica Chala">Posta Médica Chala</option>
-      <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
-      <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
-      <option value="Posta Médica Corire">Posta Médica Corire</option>
-      <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
-      <option value="Posta Medica La Joya">Posta Medica La Joya</option>
-      <option value="Posta Médica Mataran">Posta Médica Matarani</option>
-      <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
-      <option value="Posta Médica Vitor">Posta Médica Vitor</option>
-      <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
-    </select>
-
+    <div class="form-floating dropdown" required>
+      <select class="form-select" name="cas" id="cas" aria-label="Floating label select example"
+        onchange="validarCas();">
+        <option selected disabled>Seleccione una Dependencia </option>
+        <option value="Hospital Nacional Carlos Alberto Seguin Escobedo">Hospital Nacional Carlos Alberto Seguin
+          Escobedo
+        </option>
+        <option value="Hospital II Manuel de Torres Muñoz - Mollendo">Hospital II Manuel de Torres Muñoz - Mollendo
+        </option>
+        <option value="Hospital I Samuel Pastor - Camaná">Hospital I Samuel Pastor - Camaná</option>
+        <option value="Hospital III Yanahuara">Hospital III Yanahuara</option>
+        <option value="Hospital I Edmundo Escomel">Hospital I Edmundo Escomel</option>
+        <option value="CAP III Melitón Salas">CAP III Melitón Salas</option>
+        <option value="Centro Médico Aplao">Centro Médico Aplao</option>
+        <option value="CAP I Chivay">CAP I Chivay</option>
+        <option value="CAP II Hunter">CAP II Hunter</option>
+        <option value="CAP I El Pedregal">CAP I El Pedregal</option>
+        <option value="CAP I Yura">CAP I Yura</option>
+        <option value="CAP III Paucarpata">CAP III Paucarpata</option>
+        <option value="CAP III Miraflores">CAP III Miraflores</option>
+        <option value="Centro de Complejidad Creciente Cerro Colorado">Centro de Complejidad Creciente Cerro Colorado
+        </option>
+        <option value="Posta Médica Acarí">Posta Médica Acarí</option>
+        <option value="Posta Médica Atico">Posta Médica Atico</option>
+        <option value="Posta Médica Caravelí">Posta Médica Caravelí</option>
+        <option value="Posta Médica Chala">Posta Médica Chala</option>
+        <option value="Posta Médica Chucarapi">Posta Médica Chucarapi</option>
+        <option value="Posta Médica Chuquibamba">Posta Médica Chuquibamba</option>
+        <option value="Posta Médica Corire">Posta Médica Corire</option>
+        <option value="Posta Médica Cotahuasi">Posta Médica Cotahuasi</option>
+        <option value="Posta Medica La Joya">Posta Medica La Joya</option>
+        <option value="Posta Médica Mataran">Posta Médica Matarani</option>
+        <option value="Posta Médica Santa Rita">Posta Médica Santa Rita</option>
+        <option value="Posta Médica Vitor">Posta Médica Vitor</option>
+        <option value="Policlínico Metropolitano">Policlínico Metropolitano</option>
+      </select>
+      <label for="floatingSelect">Dependencia:</label>
+    </div>
+    <p id="cas_error" class="error_message"></p>
+    <p></p>
     <div class="form-group" required>
       <label for="essi">ESSI/Explota: </label>
     </div>
+    <label><input type="radio" id="essi" name="checkbox[]" value="Essi"> ESSI</label><br>
 
-    <label><input type="checkbox" id="essi" name="checkbox[]" value="Essi"> ESSI</label><br>
-
-    <input type="checkbox" id="explota" name="checkbox[]" value="Explota"> <label for="cbox2">EXPLOTA</label>
+    <input type="radio" id="explota" name="checkbox[]" value="Explota"> <label for="cbox2">EXPLOTA</label>
 
 
     <p></p>
-    <div class="form-group">
-      <label for="modulo">Modulo:</label>
+    <div class="form-floating dropdown">
+      <select class="form-select" name="modulos" id="modulo" required>
+        <option selected disabled>Seleccionar Modulo </option>
+        <option value="Admisión y Citas">Admisión y Citas</option>
+        <option value="Consulta Externa">Consulta Externa</option>
+        <option value="Emergencia">Emergencia</option>
+        <option value="Hospitalización">Hospitalización</option>
+        <option value="Centro Quirúrgico">Centro Quirúrgico</option>
+        <option value="Farmacia y Depósitos">Farmacia y Depósitos</option>
+        <option value="Ayuda al Dx">Ayuda al Dx</option>
+        <option value="Reportes">Reportes</option>
+        <option value="Utilitarios">Utilitarios</option>
+        <option value="Tablas del Sistema">Tablas del Sistema</option>
+        <option value="Liquidaciones">Liquidaciones</option>
+        <option value="Seguridad">Seguridad</option>
+      </select>
+      <label for="floatingSelect">Modulo:</label>
     </div>
-
-    <select name="modulos" id="lang" required>
-      <option value=" ">Seleccionar modulo</option>
-      <option value="Admisión y Citas">Admisión y Citas</option>
-      <option value="Consulta Externa">Consulta Externa</option>
-      <option value="Emergencia">Emergencia</option>
-      <option value="Hospitalización">Hospitalización</option>
-      <option value="Centro Quirúrgico">Centro Quirúrgico</option>
-      <option value="Farmacia y Depósitos">Farmacia y Depósitos</option>
-      <option value="Ayuda al Dx">Ayuda al Dx</option>
-      <option value="Reportes">Reportes</option>
-      <option value="Utilitarios">Utilitarios</option>
-      <option value="Tablas del Sistema">Tablas del Sistema</option>
-      <option value="Liquidaciones">Liquidaciones</option>
-      <option value="Seguridad">Seguridad</option>
-    </select>
-
+    <p></p>
 
     <div class="form-group">
       <label for="detalle"> <i class="bi bi-chat-right-dots-fill" required></i> Detalle del problema:</label>
@@ -141,81 +129,89 @@ if (!isset($_SESSION['nombre'])) {
 
     </div>
     <p></p>
-    <div class="form-group">
-      <label for="responsable">Responsable que registra: </label>
-      <input type="text" class="form-control" name="responsable" value=<?php echo $_SESSION['nombre'] ?> disabled>
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="UsuarioR">Responsable que registra</span>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="responsable"
+        value=<?php echo $_SESSION['nombre'] ?> disabled>
     </div>
     <p></p>
-    <div class="form-group">
-      <label for="UsuarioR">Usuario que reporta:</label>
-      <input type="text" class="form-control" name="UsuarioR" required>
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="UsuarioR">Usuario que reporta</span>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="UsuarioR"
+        required>
     </div>
     <p></p>
-    <div class="form-group">
-      <label for="fechaSoporte">Fecha a soporte ESSI:</label>
-      <input type="date" name="fechasoporteessi" id="fechaSoporteEssi" required>
-    </div>
-    <p></p>
-    <div class="form-group">
-      <label for="fechaSoporteMesa">Fecha Soporte Mesa de Ayuda:</label>
-      <input type="date" name="fechasoportemesa" id="fechaSoporteMesa" required>
-
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="fechaSoporte">Fecha a soporte ESSI</span>
+      <input type="date" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="fechasoporteessi" id="fechaSoporteEssi" required>
+      <span class="input-group-text" for="fechaSoporteMesa"">Fecha Soporte Mesa de Ayuda</span>
+      <input type=" date" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="fechasoportemesa" id="fechaSoporteMesa" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="nroCasoMesa">Numero de Caso Mesa de Ayuda:</label>
-      <input type="text" class="form-control" name="nroCasoMesa" required>
+      <input type="text" class="form-control" name="nroCasoMesa" onkeypress="return validarKey(event);" required>
 
     </div>
+    <p></p>
     <div class="form-group">
       <label for="reporteTelef">Reporte Telefonico a:</label>
     </div>
-    <div class="form-group">
-      <label for="fechaTelef">Fecha:</label>
-      <input type="date" name="fechaTelef" id="fechaTelefono" required>
-      <label for="destinoTelef">Destino:</label>
-      <input type="text" name="destinoTelef" autocomplete="off" required>
-
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="fechaTelef">Fecha</span>
+      <input type="date" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="fechaTelef" id="fechaTelefono" required>
+      <span class="input-group-text" for="destinoTelf"">Destino</span>
+      <input type=" text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        name="destinoTelef" autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="reporteEmail">Reporte por Email a:</label>
     </div>
-
-    <div class="form-group">
-      <label for="fechaEmail">Fecha:</label>
-      <input type="date" name="fechaEmail" id="fechaEmail" required>
-      <label for="destinoEmail">Destino:</label>
-      <input type="text" name="destinoEmail" autocomplete="off" required>
+    <div class="input-group mb-3">
+      <span class="input-group-text" for="fechaEmail">Fecha</span>
+      <input type="date" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="fechaEmail" id="fechaEmail" required>
+      <span class="input-group-text" for="destinoEmail"">Destino</span>
+      <input type=" text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+        name="destinoEmail" autocomplete="off" required>
     </div>
     <p></p>
     <div class="form-group">
       <label for="reporteWspp">Reporte por Whatsapp a: </label>
     </div>
-    <div class="form-group">
-      <label for="fechaWspp">Fecha:</label>
-      <input type="date" name="fechaWspp" id="fechaWspp" required>
-      <label for="destinoWspp">Destino:</label>
-      <input type="text" name="destinoWspp" autocomplete="off" required>
-
+    <div class="input-group mb-3 ">
+      <span class="input-group-text" id="fechaRegistro">Fecha</span>
+      <input type="date" class="form-control" placeholder="Username" aria-label="Username"
+        aria-describedby="basic-addon1" name="fechaWspp" id="fechaWspp" required>
+      <span class="input-group-text" id="fechaRegistro">Destino</span>
+      <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="destinoWspp"
+        autocomplete="off" required>
 
     </div>
     <p></p>
+
     <div class="form-group">
       <label for="reporteFormal">Reporte Formal a:</label>
-      <div class="form-group">
-        <label for="fechaFormal">Fecha:</label>
-        <input type="date" name="fechaFormal" id="fechaFormal" required>
-        <label for="destinoEmail">Destino:</label>
-        <input type="text" name="destinoFormal" autocomplete="off" required>
-
-
+      <div class="input-group mb-3 ">
+        <span class="input-group-text" id="fechaRegistro">Fecha</span>
+        <input type="date" class="form-control" placeholder="Username" aria-label="Username"
+          aria-describedby="basic-addon1" name="fechaFormal" id="fechaFormal" required>
+        <span class="input-group-text" id="fechaRegistro">Destino</span>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
+          name="destinoFormal" autocomplete="off" required>
       </div>
     </div>
     <p></p>
     <div class="form-group">
       <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
     </div>
+    <p></p>
+    <p></p>
+    <p></p>
     <input type="hidden" name="oculto" value="1">
     <script> src</script>
     <script>
@@ -226,6 +222,50 @@ if (!isset($_SESSION['nombre'])) {
       fechaEmail.max = new Date().toISOString().split("T")[0];
       fechaWspp.max = new Date().toISOString().split("T")[0];
       fechaFormal.max = new Date().toISOString().split("T")[0];
+    </script>
+
+    <script>
+      function validarKey(evt) {
+
+        // code is the decimal ASCII representation of the pressed key.
+        var code = (evt.which) ? evt.which : evt.keyCode;
+
+        if (code == 8) { // backspace.
+          return true;
+        } else if (code >= 48 && code <= 57) { // is a number.
+          return true;
+        } else { // other keys.
+          return false;
+        }
+      }
+      const validarCas = () => {
+        let cas = document.getElementById("cas");
+        let enviar = document.getElementById("enviarform");
+        if (cas.value == "") {
+          enviar.setAttribute('disabled', '');
+          cas_error.innerHTML = "Seleccione un modulo";
+        }
+        else {
+          enviar.removeAttribute('disabled', '');
+          cas_error.innerHTML = "";
+        }
+      }
+
+
+      function validarFormulario() {
+        var cas = document.getElementById("cas").value;
+        var modulo = document.getElementById("modulo").value;
+
+
+        if (essi.empty || explota.empty) {
+          alert("Por favor, complete todos los campos.");
+          return false;
+        }
+        return true;
+      }
+      enviarForm.addEventListener("submit", (e) => {
+        validarFormulario();
+      })
     </script>
 
   </form>
