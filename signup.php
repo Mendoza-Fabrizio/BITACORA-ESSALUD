@@ -71,6 +71,13 @@
     </div>
 
   </form>
+  <div>
+    <p>
+      <?php echo $error_form ?? '' ?>
+    <p>
+
+  </div>
+
 </body>
 
 </html>

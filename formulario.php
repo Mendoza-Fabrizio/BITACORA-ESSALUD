@@ -237,7 +237,6 @@ if (!isset($_SESSION['nombre'])) {
     </script>
 
     <script>
-
       function validarKey(evt) {
 
         // code is the decimal ASCII representation of the pressed key.

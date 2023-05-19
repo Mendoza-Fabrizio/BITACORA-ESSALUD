@@ -13,10 +13,10 @@ $sql_u->execute(array($codigo));
 $count = count($sql_u->fetchAll());
 if ($count > 0) {
     include("signup.php");
-		?>
-		<P></P>
-        <h4 color="red" style="text-align:center;">Usuario Existente</h4>
-		<?php
+    ?>
+    <P></P>
+    <h4 color="red" style="text-align:center;">Usuario Existente</h4>
+    <?php
 } else {
     $consulta = $pdo->prepare("INSERT INTO usuario(nombre,codigo,email,telefono,contrasena)VALUES(:nombre,:codigo,:email,:celular,:pass)");
 
