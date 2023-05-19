@@ -10,10 +10,17 @@
 	//print_r($datos);
 
 	if ($datos === FALSE) {
-		header('Location: login.php');
+		include("login.php");
+		?>
+		<P></P>
+<h4 color="red" style="text-align:center;">DATOS DE USUARIO INCORRECTO</h4>
+		<?php
+
 	}elseif($sentencia->rowCount() == 1){
 		$_SESSION['nombre'] = $datos->nombre;
 		header('Location: formulario.php');
 	}
+	
+
 
 ?>

@@ -61,6 +61,3 @@ if ($consulta->execute()) {
 } else {
 	echo "No se guardo";
 }
-
-
-?>

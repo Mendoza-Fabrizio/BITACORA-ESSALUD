@@ -37,10 +37,10 @@
                     <thead>
                         <tr>
                             <th rowspan="2">ID</th>
-                            <th rowspan="2">Fecha de Reporte</th>
-                            <th rowspan="2">Hora de Reporte</th>
-                            <th rowspan="2">Fecha actual</th>
-                            <th rowspan="2">Hora actual</th>
+                            <th rowspan="2">Fecha de la Ocurrencia</th>
+                            <th rowspan="2">Hora de la Ocurrencia</th>
+                            <th rowspan="2">Fecha de Registro</th>
+                            <th rowspan="2">Hora de Registro</th>
                             <th rowspan="2">Dependencia</th>
                             <th rowspan="2">ESSL/Explota</th>
                             <th rowspan="2">Módulo</th>

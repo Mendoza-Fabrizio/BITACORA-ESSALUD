@@ -4,10 +4,10 @@ DROP TABLE IF EXISTS bitacora;
 -- tabla clientes
 CREATE TABLE bitacora(
     idbitacora	int(11) NOT NULL AUTO_INCREMENT,
-    Fecha	DATE NOT NULL,
-    Hora TIME NOT NULL,
-    fecha_actual DATE NOT NULL,
-    hora_actual TIME NOT NULL,
+    Fecha_ocurrencia DATE NOT NULL,
+    Hora_ocurrencia TIME NOT NULL,
+    fecha_registro DATE NOT NULL,
+    hora_registro TIME NOT NULL,
     CAS	varchar(100) NOT NULL,
     essi_explota varchar(10) NOT NULL,
     modulo varchar(50) NOT NULL,

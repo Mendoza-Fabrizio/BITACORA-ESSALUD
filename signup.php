@@ -24,15 +24,16 @@
           <img src="login/logo/usuario1.png" alt="username-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="text" placeholder="Nombre completo" autocomplete="off"
-          name="nombre" />
+          name="nombre" required/>
       </div>
+  
       <div>
         <div class="input-group mt-4">
           <div class="input-group-text bg-info">
-            <img src="login/logo/dni.png" alt="email-icon" style="height: 1rem" />
+            <img src="login/logo/dni.png" alt="dni-icon" style="height: 1rem" />
           </div>
           <input class="form-control bg-light" type="text" placeholder="Documento de Identidad" autocomplete="off"
-            id="dni" name="codigo" onchange="validarForm();" maxlength="8" onkeypress="return validarKey(event);" />
+            id="dni" name="codigo" onchange="validarForm();" maxlength="8" onkeypress="return validarKey(event);" required/>
 
         </div>
         <p id="dni_error" class="error_message"></p>
@@ -41,16 +42,16 @@
         <div class="input-group-text bg-info">
           <img src="login/logo/email.png" alt="email-icon" style="height: 1rem" />
         </div>
-        <input class="form-control bg-light" type="text" placeholder="Correo Electronico" autocomplete="off"
-          name="email" />
+        <input class="form-control bg-light" type="email" placeholder="Correo Electronico" autocomplete="off"
+          name="email" id="correo" required onblur="validarCorreo()" required/>
       </div>
-
+      <p id="correo_error" class="error_message"></p>
       <div class="input-group mt-4">
         <div class="input-group-text bg-info">
           <img src="login/logo/phone.png" alt="telefono-icon" style="height: 1rem" />
         </div>
         <input class="form-control bg-light" type="tel" placeholder="Telefono " autocomplete="off" id="celular"
-          onchange="validarNum();" maxlength="9" name="celular" onkeypress="return validarKey(event);" />
+          onchange="validarNum();" maxlength="9" name="celular" onkeypress="return validarKey(event);" required/>
       </div>
       <p id="celular_error" class="error_message"></p>
       <p></p>
@@ -66,9 +67,9 @@
         <input id="enviar" type="submit" name="enviar" value="Guardar"
           class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm" disabled>
       </div>
-      
       <div>¿Ya tienes una cuenta?<a href="login.php" aria-label="  Iniciar Sesión" style="text-decoration:none" class="text-decoration-none text-info fw-semibold">  Iniciar Sesión</a></div>
     </div>
+
   </form>
 </body>
 
@@ -77,7 +78,7 @@
   const validarForm = () => {
     let dni = document.getElementById("dni");
     let enviar = document.getElementById("enviar");
-    if (dni.value.length != 8) {
+    if (dni.value.length  != 8) {
       enviar.setAttribute('disabled', '');
       dni_error.innerHTML = "El dni debe tener 8 digitos";
     }
@@ -111,6 +112,18 @@
       return false;
     }
   }
+  function validarCorreo() {
+  var correo = document.getElementById("correo").value;
+  var expresion = /\S+@\S+\.\S+/;
+  let enviar = document.getElementById("enviar");
+  if (!expresion.test(correo)) {
+    enviar.setAttribute('disabled', '');
+    correo_error.innerHTML = "El correo ingresado no es válido";
+  }else {
+      enviar.removeAttribute('disabled', '');
+      correo_error.innerHTML = "";
+    }
+}
 
 </script>
 <?php
