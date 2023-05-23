@@ -225,7 +225,7 @@ if (!isset($_SESSION['nombre'])) {
     <p></p>
     <p></p>
     <input type="hidden" name="oculto" value="1">
-    <script> src</script>
+    <script></script>
     <script>
       fechaRegistro.max = new Date().toISOString().split("T")[0];
       fechaSoporteEssi.max = new Date().toISOString().split("T")[0];
@@ -279,17 +279,41 @@ if (!isset($_SESSION['nombre'])) {
         const reporte_email = document.getElementById("reporte-email");
         const reporte_whatsapp = document.getElementById("reporte-whatsapp");
         const reporte_formal = document.getElementById("reporte-formal");
+        console.log(reporte_telefonico.value);
         if (id == 1) {
-          reporte_telefonico.disabled = false;
+
+          if (fechaTelefono.value != "") {
+            reporte_telefonico.disabled = false;
+          }
+          else {
+            reporte_telefonico.disabled = true;
+          }
         }
         else if (id == 2) {
-          reporte_email.disabled = false;
+          if (fechaEmail.value != "") {
+            reporte_email.disabled = false;
+          }
+          else {
+            reporte_email.disabled = true;
+          }
+
         }
         else if (id == 3) {
-          reporte_whatsapp.disabled = false;
+          if (fechaWspp.value != "") {
+            reporte_whatsapp.disabled = false;
+          }
+          else {
+            reporte_whatsapp.disabled = true;
+          }
+
         }
         else if (id == 4) {
-          reporte_formal.disabled = false;
+          if (fechaFormal.value !== "") {
+            reporte_formal.disabled = false;
+          }
+          else {
+            reporte_formal.disabled = true;
+          }
         }
       }
     </script>
