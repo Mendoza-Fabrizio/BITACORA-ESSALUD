@@ -218,9 +218,20 @@ if (!isset($_SESSION['nombre'])) {
       </div>
     </div>
     <p></p>
+
     <div class="form-group">
-      <input type="submit" id="enviarform" class="btn btn-primary form-control" style="background-color: #808080;">
+      <input value="Enviar" type="button" id="enviarform" class="btn btn-primary form-control"
+        style="background-color: #808080;">
     </div>
+    <dialog id="favDialog">
+      <form method="dialog">
+        <p>Esta seguro desea guardar?</p>
+        <menu>
+          <button id="cancel" type="reset">Cancel</button>
+          <button type="submit">Confirm</button>
+        </menu>
+      </form>
+    </dialog>
     <p></p>
     <p></p>
     <p></p>
@@ -235,8 +246,8 @@ if (!isset($_SESSION['nombre'])) {
       fechaWspp.max = new Date().toISOString().split("T")[0];
       fechaFormal.max = new Date().toISOString().split("T")[0];
     </script>
-
     <script>
+      const dialog = document.getElementById("favDialog");
       function validarKey(evt) {
 
         // code is the decimal ASCII representation of the pressed key.
@@ -316,6 +327,16 @@ if (!isset($_SESSION['nombre'])) {
           }
         }
       }
+      const submitForm = document.getElementById("enviarform");
+      const cancelButton = document.getElementById("cancel")
+      submitForm.addEventListener("click", () => {
+        dialog.show();
+
+      })
+      cancelButton.addEventListener("click", () => {
+        dialog.close();
+      })
+
     </script>
 
   </form>
